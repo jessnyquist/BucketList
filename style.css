@@ -1,0 +1,6 @@
+.navbar{
+	border: black 2px solid;
+}
+.navbar h1{
+	display: inline-block;
+}
