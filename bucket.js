@@ -90,9 +90,11 @@ app.controller('ProfileCtrl', function($scope, $firebaseArray){
 
 app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject){
 	console.log($routeParams);
-	$scope.list= $routeParams.listId;
-	var ref= firebase.database().ref().child('lists');
-	$scope.lists = $firebaseObject(ref);
-	$scope.listName= $scope.lists[$scope.list].name;
+	var number = $routeParams.listId;
+	console.log(number);
+	var ref= firebase.database().ref().child('lists').child(number);
+	$scope.list = $firebaseObject(ref);
+	console.log($scope.list);
+
 
 });

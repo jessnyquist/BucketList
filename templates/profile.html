@@ -8,5 +8,5 @@ List Description: <input ng-model="description">
 	<button type="submit" ng-click="newList()">New List</button>
 	</form>
 <div ng-repeat="item in lists">
-<a href="#/list/{{item}}">{{item.title}}: {{item.description}}</a>
+<a href="#/list/{{item.$id}}">{{item.title}}: {{item.description}}</a>
 </div>
