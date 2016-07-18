@@ -4,3 +4,12 @@
 .navbar h1{
 	display: inline-block;
 }
+.checkBox {
+	height: 10px;
+	width: 10px;
+	border: solid black 1px;
+	display: inline-block;
+}
+.isGreen {
+	background-color: green;
+}

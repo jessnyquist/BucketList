@@ -105,6 +105,9 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 		$scope.eventName='';
 
 	};
+	$scope.completed = function(){
+		console.log("task completed!")
+	}
 
 
 });
