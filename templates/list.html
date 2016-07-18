@@ -1,1 +1,10 @@
 <h1>{{list.title}}</h1>
+<div ng-repeat="event in list.events">
+{{event.title}}
+</div>
+<button ng-click="createNew = true" ng-hide="createNew">New Goal</button>
+<form ng-submit="createEvent()" ng-show="createNew">
+To Do:<input ng-model="eventName">
+
+<button type="submit" ng-click>Add to List!</button>
+</form>

@@ -88,13 +88,23 @@ app.controller('ProfileCtrl', function($scope, $firebaseArray){
 
 });
 
-app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject){
+app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray){
 	console.log($routeParams);
 	var number = $routeParams.listId;
 	console.log(number);
 	var ref= firebase.database().ref().child('lists').child(number);
 	$scope.list = $firebaseObject(ref);
 	console.log($scope.list);
+	$scope.createEvent = function(){
+		var ref= firebase.database().ref().child('lists').child(number).child('events');
+		var events = $firebaseArray(ref);
+		events.$add({
+			'title': $scope.eventName,
+			'created_at': Date.now(),
+		})
+		$scope.eventName='';
+
+	};
 
 
 });
