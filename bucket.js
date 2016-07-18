@@ -19,15 +19,27 @@ app.config(function($routeProvider) {
 		controller: 'ProfileCtrl',
 		templateUrl: 'templates/profile.html',
 	})
+	$routeProvider.when('/list/:listId', {
+		controller: 'ListCtrl',
+		templateUrl: 'templates/list.html',
+	})
 });
 
 app.controller('HomeCtrl', function($scope){
 
 
 });
-app.controller('NavCtrl', function($scope){
+app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray){
+
 	$scope.newList = function(){
 		console.log("create new list pop up");
+	var ref = firebase.database().ref().child('lists');
+	$scope.lists = $firebaseArray(ref);
+	$scope.lists.$add({
+		'title': $scope.title,
+		'description': $scope.description,
+	})
+	
 	};
 
 });
@@ -61,6 +73,26 @@ app.controller('LogInCtrl', function($scope){
 	}
 
 });
-app.controller('ProfileCtrl', function($scope){
+app.controller('ProfileCtrl', function($scope, $firebaseArray){
+		console.log("create new list pop up");
+	var ref = firebase.database().ref().child('lists');
+	$scope.lists = $firebaseArray(ref);
+		$scope.newList = function(){
+	$scope.lists.$add({
+		'title': $scope.title,
+		'description': $scope.description,
+	})
+	
+	};
+
+
+});
+
+app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject){
+	console.log($routeParams);
+	$scope.list= $routeParams.listId;
+	var ref= firebase.database().ref().child('lists');
+	$scope.lists = $firebaseObject(ref);
+	$scope.listName= $scope.lists[$scope.list].name;
 
 });

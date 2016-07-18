@@ -1,3 +1,12 @@
 <h1>My Profile</h1>
 <p> list of your info and your lists here </p>
 <p> if not logged in, redirect to login</p>
+<form ng-submit>
+List Title: <input ng-model="title">
+List Description: <input ng-model="description">
+
+	<button type="submit" ng-click="newList()">New List</button>
+	</form>
+<div ng-repeat="item in lists">
+<a href="#/list/{{item}}">{{item.title}}: {{item.description}}</a>
+</div>
