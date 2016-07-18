@@ -1,2 +1,21 @@
 <h1>Create New Account</h1>
 <p> add to database then redirect to home or profile</p>
+<form ng-submit="signUp()">
+  <div>
+    <label>Name</label>
+    <input ng-model="name">
+  </div>
+  
+  <div>
+    <label>Email</label>
+    <input ng-model="email">
+  </div>
+  
+  <div>
+    <label>Password</label>
+    <input ng-model="password">
+  </div>
+  
+  <button type="submit">Sign up</button>
+  
+</form>

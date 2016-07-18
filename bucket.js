@@ -1,5 +1,6 @@
 var app = angular.module('bucketApp',['ngRoute', 'firebase']);
 app.factory('facebookService', function() {
+
 });
 app.config(function($routeProvider) {
 	$routeProvider.when('/', {
@@ -30,8 +31,29 @@ app.controller('NavCtrl', function($scope){
 	};
 
 });
-app.controller('SignUpCtrl', function($scope){
-
+app.controller('SignUpCtrl', function($scope, $firebaseAuth, $firebaseObject){
+	$scope.signUp = function(){
+		console.log($scope.name);
+		console.log($scope.password);
+		console.log($scope.email);
+		$scope.error = "";
+		$scope.isSuccess= false;
+		$scope.authObj = $firebaseAuth();
+		$scope.authObj.$createUserWithEmailAndPassword($scope.email, $scope.password)
+		.then(function(firebaseUser){
+			console.log("User " + firebaseUser.uid + " created successfully!");
+			var ref = firebase.database().ref().child('users').child(firebaseUser.uid);
+			$scope.user= $firebaseObject(ref);
+			$scope.user.name = $scope.name;
+			$scope.user.email = $scope.email;
+			$scope.user.$save();
+			$scope.isSuccess= true;	
+			window.location.assign('#/list');   
+		}).catch(function(error) {
+			console.error("Error: ", error);
+			$scope.error = error;
+		});
+	}
 });
 app.controller('LogInCtrl', function($scope){
 	$scope.facebookLogIn = function(){
