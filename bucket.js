@@ -11,7 +11,7 @@ app.config(function($routeProvider) {
 	})
 	$routeProvider.when('/login', {
 		controller: 'LogInCtrl',
-		templateUrl: 'templates/login.html',
+		templateUrl: 'templates/logon.html',
 	})
 	$routeProvider.when('/profile', {
 		controller: 'ProfileCtrl',
@@ -20,6 +20,12 @@ app.config(function($routeProvider) {
 });
 
 app.controller('HomeCtrl', function($scope){
+
+});
+app.controller('NavCtrl', function($scope){
+	$scope.newList = function(){
+		console.log("create new list pop up");
+	};
 
 });
 app.controller('SignUpCtrl', function($scope){
