@@ -54,12 +54,12 @@ app.config(function($routeProvider) {
 	})
 });
 
-app.controller('HomeCtrl', function($scope, $firebaseArray, currentAuth){
+app.controller('HomeCtrl', function($scope, $firebaseArray){
 	var ref = firebase.database().ref().child('lists');
 		$scope.lists = $firebaseArray(ref);
 	
 });
-app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray, currentAuth){
+app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray){
 	// console.log(currentAuth);
 	// var currUser = currentAuth.uid;
 	// console.log(currentAuth.uid);
@@ -164,7 +164,9 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 
 		var eventsRef= firebase.database().ref().child('lists').child(list_Id).child('events').child(event_key);
 		var events = $firebaseObject(eventsRef);
-		console.log(events);
+		console.log(event_key);
+
+		var 
 	}
 
 

@@ -2,10 +2,11 @@
 <div ng-repeat="(id, event) in list.events">
 
 
-<!-- <div class="checkBox" ng-click="isGreen = true; completed()" ng-class="{'isGreen': isGreen}"></div>{{event.title}}
- -->
+<input type="checkbox" ng-click="completed(id)"> {{event.title}}
 
-<input type="checkbox" ng-click="completed(id)" ng-true-value = "isCompleted" ng-false-value = "!isCompleted"> {{event.title}}
+<!--  ng-true-value = "isCompleted" ng-false-value = "!isCompleted" -->
+
+
 
 	<div ng-show="successMessage" class="alert alert-success fade in">
 		{{successMessage}}
