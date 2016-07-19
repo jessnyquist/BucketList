@@ -230,3 +230,4 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 	$scope.addTo = function(){
 		console.log("add to a list");
 	}
+});
