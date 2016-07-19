@@ -10,7 +10,8 @@
 
 	<div ng-show="successMessage" class="alert alert-success fade in">
 		{{successMessage}}
-		<a href="#/myList/{{list.events.id}}" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<a href="#/myList/{{lists.id}}" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<!-- Fix above redirect link so that it goes back to the list page -->
 	</div>
 
 </div>

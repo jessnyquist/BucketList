@@ -204,29 +204,33 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 		console.log(event);
 
 		event.$loaded(function() {
-
-	
 			event.isCompleted = true;
 			event.$save();
-			
+
+			$scope.eventIsCompleted = event.isCompleted;
+			console.log($scope.eventIsCompleted);
+
 		}).then(function(ref) {
 	  	eventsRef.key === event.$id; // true
 	 	 });
 
 
-		$scope.successMessage = "";
+		// $scope.checked = true;
+	 //      $scope.unchecked = function(checked){
+	 //        if(checked){
+	 //           $scope.checked = false;
+	 //        }else{
+	 //          $scope.checked = true;
+	 //        }
+		// }	
+	}
 
-
-// we need to get it so that it updates not deletes when you change isCompleted to false
-// right now it doesn't load before so it wipes it but i don't remember 
-//how to get it to wait for the server first
-
-}
 });
+
 app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray, $firebaseAuth){
 	$scope.authObj = $firebaseAuth();
 	$scope.firebaseUser = $scope.authObj.$getAuth();
-	console.log($scope.firebaseUser['uid']);
+	// console.log($scope.firebaseUser['uid']);
 	console.log($routeParams);
 	var list_Id = $routeParams.listId;
 	console.log(list_Id);
@@ -268,15 +272,16 @@ lists.$loaded(function(){
 	console.log(lists);
 	angular.forEach(lists, function(listKey, values){
 		console.log("test");
-	});
+	
 	$scope.addTo = function(){
 		console.log("add to a list");
 	}
 })
 
-if(listKey.user === $scope.firebaseUser['uid']){
+	if(listKey.user === $scope.firebaseUser['uid']){
 			$scope.myListArray.push(listKey);
 		}
+	});
 	
 	});
 		addTo = function(){
