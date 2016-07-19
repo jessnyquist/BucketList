@@ -1,9 +1,19 @@
 <h1>{{list.title}}</h1>
-<div ng-repeat="event in list.events">
-<div class="checkBox" ng-click="isGreen = true; completed()" ng-class="{'isGreen': isGreen}"></div>
-{{event.title}}
+<div ng-repeat="(id, event) in list.events">
+
+
+<!-- <div class="checkBox" ng-click="isGreen = true; completed()" ng-class="{'isGreen': isGreen}"></div>{{event.title}}
+ -->
+
+<input type="checkbox" ng-click="completed(id)" ng-true-value = "isCompleted" ng-false-value = "!isCompleted"> {{event.title}}
+
+	<div ng-show="successMessage" class="alert alert-success fade in">
+		{{successMessage}}
+	</div>
+
 </div>
-<button ng-click="createNew = true" ng-hide="createNew">New Event</button>
+
+<button ng-click="createNew = true" ng-hide="createNew">New Goal</button>
 <form ng-submit="createEvent()" ng-show="createNew">
 To Do:<input ng-model="eventName">
 
