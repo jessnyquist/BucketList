@@ -26,7 +26,11 @@ app.config(function($routeProvider) {
 		controller: 'LogInCtrl',
 		templateUrl: 'templates/logon.html',
 	})
-	$routeProvider.when('/profile/:profileId', {
+	$routeProvider.when('/visitorProfile/:profileId', {
+		controller: 'VistorProfileCtrl',
+		templateUrl: 'templates/visitorprofile.html',
+	})
+	$routeProvider.when('/myProfile/:profileId', {
 		controller: 'ProfileCtrl',
 		templateUrl: 'templates/profile.html',
 		 resolve: {
@@ -63,6 +67,9 @@ app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray){
 	// console.log(currentAuth);
 	// var currUser = currentAuth.uid;
 	// console.log(currentAuth.uid);
+
+});
+app.controller('VisitorProfileCtrl', function($scope, $routeParams){
 
 });
 app.controller('SignUpCtrl', function($scope, $firebaseAuth, $firebaseObject, $location){
