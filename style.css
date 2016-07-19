@@ -1,9 +1,33 @@
-.navbar{
-	border: black 2px solid;
-}
-.navbar h1{
+.nav {
+	border: 2px solid grey;
 	display: inline-block;
+	width: 100%;
 }
+
+.nav h1 {
+	float: left;
+	font-size: 80px;
+	color: #2CFFCB;
+	font-family: impact;
+}
+
+.nav h1 a {
+	text-decoration: none;
+	color: #2CFFCB;
+}
+
+.menu {
+	float: right;
+	font-size: 30px;
+	margin-top: 40px;
+	font-family: impact;
+	color: #1DB5F6;
+}
+
+.menu a {
+	color: #1DB5F6;
+}
+
 .success{
 	position:fixed;
 	top: 0px;
@@ -13,6 +37,67 @@
 	background-color: rgba(0,0,0,.3);
 }
 
+.welcomeBlurb {
+	text-align: center;
+	margin-top: 70px;
+	color: #578599;
+}
+
+.feed {
+	text-align: center;
+	margin-top: 60px;
+	font-size: 20px;
+}
+
+.loginTitle {
+	font-size: 80px;
+	color: #FF7A6B;
+	margin-top: 50px;
+	text-align: center;
+}
+
+.loginForm {
+	text-align: center;
+	font-size: 30px;
+}
+
+.needAccount {
+	text-align: center;
+	display: inline;
+	text-align: center;
+	margin: 0px;
+	border: 2px solid blue;
+}
+
+.needAccountBlurb {
+	float: left;
+	font-size: 25px;
+	color: #1DB5F6;
+	margin: 0px auto;
+}
+
+.newAccount {
+	font-size: 23px;
+	text-decoration: none;
+	float: right;
+}
+
+.newAccount a {
+	text-decoration: none;
+}
+
+.fb-btn {
+	width: 50%;
+	height: 50px;
+	font-family: 20px;
+}
+
+.loginOr {
+	text-align: center;
+	font-size: 40px;
+	margin-top: 20px;
+	color: #FF7A6B;
+}
 /*.checkBox {
 	height: 10px;
 	width: 10px;

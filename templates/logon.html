@@ -1,17 +1,10 @@
-<h1> Log In </h1>
+<h1 class="loginTitle">Log In</h1>
 
 <div ng-show="successLogin" class="alert alert-success fade in">
 	{{successLogin}}
 </div>
 
-
-<div>
-<p>Don't have an existing Account?</p>
-<button><a href="#/signup">New Account</a></button>
-</div>
-
-
-<form ng-submit="login()">
+<form ng-submit="login()" class="loginForm">
   <div>
     <label>Email</label>
     <input ng-model="email">
@@ -21,13 +14,18 @@
     <label>Password</label>
     <input type="password" ng-model="password">
   </div>
-  
+
   <button type="submit">Sign in</button>
 </form>
 
-<p>..Or..</p>
+<p class="loginOr">Or..</p>
 
-<div class="btn btn-info btn-block" ng-click="loginWithFb()">
+<div class="btn btn-info btn-block fb-btn" ng-click="loginWithFb()">
 	Login with Facebook
+</div>
+
+<div class="needAccount">
+  <div><p class="needAccountBlurb">Don't have an existing Account?</p></div>
+  <div><button class="newAccount"><a href="#/signup">New Account</a></button></div>
 </div>
 

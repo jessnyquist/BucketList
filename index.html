@@ -9,16 +9,18 @@
   
 </header>
 <body ng-app="bucketApp">
-	<div ng-controller="NavCtrl" class="navbar">
-	<h1>BucketList</h1>
-  <a href="#/">Home</a>
-  <a href="#/myProfile">My Profile</a>
-  <a href="#/login">Sign In</a>
-	
-  <span>
-  {{ firebaseUser.displayName }} | <a href="#/" ng-click="authObj.$signOut()">Sign out</a>
-</span>
+	<div ng-controller="NavCtrl" class="nav">
+      <h1><a href="#/">BucketList<a></h1>
+      <div class="menu">
+        <a href="#/">Home</a> |
+        <a href="#/myProfile">My Profile</a> |
+        <a href="#/login">Sign In</a>
+        <span>
+        {{ firebaseUser.displayName }} | <a href="#/" ng-click="authObj.$signOut()">Sign out</a>
+        </span>
+    </div>
 	</div>
+
 	<div ng-view>
 	<script>
   window.fbAsyncInit = function() {

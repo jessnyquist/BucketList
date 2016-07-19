@@ -122,6 +122,7 @@ app.controller('LogInCtrl', function($scope, $firebaseAuth, $routeParams, $locat
 			console.error("Authentication failed:", error);
 		});
 
+		$scope.successLogin= "";
 
 	}
 

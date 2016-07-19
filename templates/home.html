@@ -1,6 +1,11 @@
-<h1> Home Page</h1>
-<h3> Welcome to BucketList! Need inspiration? Check out lists made by other users!</h3>
-Search Bucket Lists: <input ng-model="searchText">
-<div ng-repeat="item in lists | filter: searchText">
-<a href="#/list/{{item.$id}}">{{item.title}}: {{item.description}}</a>
+<div class="welcomeBlurb">
+	<h1 class="welcome">Welcome to BucketList!</h1>
+	<h3 class="">Need inspiration? Check out lists made by other users</h3>
+</div>
+
+<div class="feed">
+	Search Bucket Lists: <input ng-model="searchText">
+	<div ng-repeat="item in lists | filter: searchText">
+	<a href="#/list/{{item.$id}}">{{item.title}}: {{item.description}}</a>
+	</div>
 </div>
