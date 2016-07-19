@@ -64,7 +64,7 @@ app.config(function($routeProvider) {
 
 app.controller('HomeCtrl', function($scope, $firebaseArray){
 	var ref = firebase.database().ref().child('lists');
-		// $scope.lists = $firebaseArray(ref
+		$scope.lists = $firebaseArray(ref)
 });
 
 app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray, $firebaseAuth){
@@ -255,5 +255,6 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 	$scope.addTo = function(){
 		console.log("add to a list");
 	}
+})
 
-	});
+});
