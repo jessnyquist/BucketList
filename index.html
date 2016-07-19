@@ -6,12 +6,11 @@
 	<title>BucketListApp</title>
 </header>
 <body ng-app="bucketApp">
-
 	<div ng-controller="NavCtrl" class="navbar">
 	<h1>BucketList</h1>
-	<a href="#/profile">My Profile</a>
-	<a href="#/">Home</a>
-	<a>Log Out</a>
+  <a href="#/">Home</a>
+	<a href="#/profile/:profileId">My Profile</a>
+	<button>Log Out</button>
 	</div>
 	<div ng-view>
 	<script>
