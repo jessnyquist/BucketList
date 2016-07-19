@@ -209,6 +209,7 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 
 	};
 	$scope.successMessage = "";
+>>>>>>> 4cc35b50d30bd1987a238dc68de318ad59871eb1
 
 	$scope.completed = function(event_key){
 		console.log("task completed!");
