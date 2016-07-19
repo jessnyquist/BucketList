@@ -130,11 +130,7 @@ app.controller('ProfileCtrl', function($scope, $firebaseArray, $firebaseAuth, $r
 	$scope.authObj = $firebaseAuth();
 	console.log(currentAuth.uid);
 	$scope.current_user_id = currentAuth.uid;
-	var myLists = [];
-	console.log(allLists);
-	for(item in allLists){
-		console.log("Item", item);
-	}
+
 
 	$scope.lists = $firebaseArray(ref);
 		$scope.newList = function(){
