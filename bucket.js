@@ -205,7 +205,7 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray, $firebaseAuth){
 	$scope.authObj = $firebaseAuth();
 	$scope.firebaseUser = $scope.authObj.$getAuth();
-	console.log($scope.firebaseUser);
+	console.log($scope.firebaseUser['uid']);
 	console.log($routeParams);
 	var list_Id = $routeParams.listId;
 	console.log(list_Id);
@@ -249,14 +249,16 @@ lists.$loaded(function(){
 	$scope.myListArray= [];
 	console.log(lists);
 	angular.forEach(lists, function(listKey, values){
-		// if(listKey.user === $scope.firebaseUser.uid){
-		// 	console.log("yes" + listKey.title);
-		// }
+		if(listKey.user === $scope.firebaseUser['uid']){
+			$scope.myListArray.push(listKey);
+		}
+	
 	});
-	$scope.addTo = function(){
-		console.log("add to a list");
-	}
+
 
 }); 
-
+		$scope.addTo = function(){
+		console.log("add");
+		console.log($scope.selectedList);
+	}
 });

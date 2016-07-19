@@ -4,7 +4,7 @@
 
 {{event.title}}<button ng-click="isAdding = true" ng-show="firebaseUser">+</button>
 <div ng-show="isAdding">
-<!-- <select ng-options="b.id as b.first_name + b.last_name for b in brus track by b.id" ng-model="selectedBru"></select> -->
+<select ng-options="b.title as b.title for b in myListArray track by b.title" ng-model= "selectedList"></select>
 <button ng-click="addTo()">Add to List!</button>
 </div>
 </div>
