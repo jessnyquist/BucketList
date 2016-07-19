@@ -64,12 +64,7 @@ app.config(function($routeProvider) {
 
 app.controller('HomeCtrl', function($scope, $firebaseArray){
 	var ref = firebase.database().ref().child('lists');
-<<<<<<< HEAD
 		$scope.lists = $firebaseArray(ref)
-=======
-	$scope.lists = $firebaseArray(ref);
-
->>>>>>> 21dd7fd5ac320842245e9a79bfff4899a48355a1
 });
 
 app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray, $firebaseAuth){
@@ -78,8 +73,12 @@ app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray, $fir
 	$scope.firebaseUser = firebaseUser;
 });
 app.controller('VisitorProfileCtrl', function($scope, $routeParams){
-
+	console.log($routeParams);
+	var profile_Id = $routeParams.profileId;
+	console.log(profile_Id);
+	var ref= firebase.database().ref().child('users').child(profile_Id);
 });
+
 app.controller('SignUpCtrl', function($scope, $firebaseAuth, $firebaseObject, $location){
 	$scope.signUpWithEmail = function(){
 		console.log($scope.name);
@@ -269,10 +268,7 @@ if(listKey.user === $scope.firebaseUser['uid']){
 		}
 	
 	});
-
-});
-		$scope.addTo = function(){
+		addTo = function(){
 		console.log("add");
 		console.log($scope.selectedList);
 	}
-});
