@@ -175,7 +175,7 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 		console.log(event_key);
 
 		$scope.eventKey = event_key;
-		console.log($scope.eventKey);
+	
 
 
 	}
