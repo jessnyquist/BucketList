@@ -54,22 +54,15 @@ app.config(function($routeProvider) {
 	})
 });
 
-app.controller('HomeCtrl', function($scope){
-
-
-});
-app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray){
-
-	$scope.newList = function(){
-		console.log("create new list pop up");
+app.controller('HomeCtrl', function($scope, $firebaseArray, currentAuth){
 	var ref = firebase.database().ref().child('lists');
-	$scope.lists = $firebaseArray(ref);
-	$scope.lists.$add({
-		'title': $scope.title,
-		'description': $scope.description,
-	})
+		$scope.lists = $firebaseArray(ref);
 	
-	};
+});
+app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray, currentAuth){
+	// console.log(currentAuth);
+	// var currUser = currentAuth.uid;
+	// console.log(currentAuth.uid);
 
 });
 app.controller('SignUpCtrl', function($scope, $firebaseAuth, $firebaseObject, $location){
@@ -122,11 +115,13 @@ app.controller('LogInCtrl', function($scope, $firebaseAuth, $routeParams, $locat
 });
 
 app.controller('ProfileCtrl', function($scope, $firebaseArray, $firebaseAuth, $routeParams, currentAuth){
-		console.log("create new list pop up");
-	currentAuth.uid = $routeParams.profileId;
+	var profile_Id = $routeParams.profileId;
+	profile_Id = currentAuth.uid;
+	console.log(profile_Id);
+	// var profile_Id = currentAuth.uid;
+ // 	// $routeParams.profileId = profile_Id;
 	var ref = firebase.database().ref().child('lists');
 	$scope.authObj = $firebaseAuth();
-	console.log(currentAuth);
 	console.log(currentAuth.uid);
 
 	$scope.lists = $firebaseArray(ref);
@@ -134,9 +129,10 @@ app.controller('ProfileCtrl', function($scope, $firebaseArray, $firebaseAuth, $r
 	$scope.lists.$add({
 		'title': $scope.title,
 		'description': $scope.description,
-		'user': $scope.currUser,
-	})
-	
+		'user': currentAuth.uid,
+	}) 
+	$scope.title = '';
+	$scope.description = '';
 	};
 
 

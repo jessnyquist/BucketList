@@ -1,2 +1,6 @@
 <h1> Home Page</h1>
 <p> feed goes here?</p>
+
+<div ng-repeat="item in lists">
+<a href="#/list/{{item.$id}}">{{item.title}}: {{item.description}}</a>
+</div>
