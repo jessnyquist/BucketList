@@ -64,17 +64,21 @@ app.config(function($routeProvider) {
 
 app.controller('HomeCtrl', function($scope, $firebaseArray){
 	var ref = firebase.database().ref().child('lists');
-	$scope.lists = $firebaseArray(ref);
-
+		$scope.lists = $firebaseArray(ref)
 });
+
 app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray, $firebaseAuth){
 	$scope.authObj = $firebaseAuth();
 	var firebaseUser = $scope.authObj.$getAuth();
 	$scope.firebaseUser = firebaseUser;
 });
 app.controller('VisitorProfileCtrl', function($scope, $routeParams){
-
+	console.log($routeParams);
+	var profile_Id = $routeParams.profileId;
+	console.log(profile_Id);
+	var ref= firebase.database().ref().child('users').child(profile_Id);
 });
+
 app.controller('SignUpCtrl', function($scope, $firebaseAuth, $firebaseObject, $location){
 	$scope.signUpWithEmail = function(){
 		console.log($scope.name);
@@ -140,11 +144,14 @@ app.controller('LogInCtrl', function($scope, $firebaseAuth, $routeParams, $locat
 
 app.controller('ProfileCtrl', function($scope, $firebaseArray, $firebaseAuth, $routeParams, currentAuth, $firebaseObject){
 	var ref = firebase.database().ref().child('lists');
-	var allLists = $firebaseObject(ref);
+	var allLists = $firebaseArray(ref);
 	$scope.authObj = $firebaseAuth();
 	console.log(currentAuth.uid);
-	$scope.current_user_id = currentAuth.uid;
-
+	var myLists = [];
+	console.log(allLists);
+	for(item in allLists){
+		console.log(item);
+	}
 
 	$scope.lists = $firebaseArray(ref);
 	$scope.newList = function(){
@@ -255,16 +262,19 @@ lists.$loaded(function(){
 	$scope.myListArray= [];
 	console.log(lists);
 	angular.forEach(lists, function(listKey, values){
-		if(listKey.user === $scope.firebaseUser['uid']){
+		console.log("test");
+	});
+	$scope.addTo = function(){
+		console.log("add to a list");
+	}
+})
+
+if(listKey.user === $scope.firebaseUser['uid']){
 			$scope.myListArray.push(listKey);
 		}
 	
 	});
-
-
-}); 
-		$scope.addTo = function(){
+		addTo = function(){
 		console.log("add");
 		console.log($scope.selectedList);
 	}
-});
