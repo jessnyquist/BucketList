@@ -12,8 +12,9 @@
 	<div ng-controller="NavCtrl" class="navbar">
 	<h1>BucketList</h1>
   <a href="#/">Home</a>
+  <a href="#/myProfile">My Profile</a>
   <a href="#/login">Sign In</a>
-	<a href="#/myProfile">My Profile</a>
+	
   <span>
   {{ firebaseUser.displayName }} | <a href="#/" ng-click="authObj.$signOut()">Sign out</a>
 </span>
