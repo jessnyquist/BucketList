@@ -1,0 +1,23 @@
+<h1>{{list.title}}</h1>
+<h2>My List</h2>
+<div ng-repeat="(id, event) in list.events">
+
+
+<input type="checkbox" ng-click="completed(id)"> {{event.title}}
+
+<!--  ng-true-value = "isCompleted" ng-false-value = "!isCompleted" -->
+
+
+
+	<div ng-show="successMessage" class="alert alert-success fade in">
+		{{successMessage}}
+	</div>
+
+</div>
+
+<button ng-click="createNew = true" ng-hide="createNew">New Goal</button>
+<form ng-submit="createEvent()" ng-show="createNew">
+To Do:<input ng-model="eventName">
+
+<button type="submit" ng-click>Add to List!</button>
+</form>
