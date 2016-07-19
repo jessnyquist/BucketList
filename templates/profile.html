@@ -1,6 +1,6 @@
-<h1>My Profile</h1>
+<h1 class="myListsTitle">My Lists</h1>
 
-<button ng-click="makeList=true" ng-hide="makeList">New List</button>
+<button class="makeNewList" ng-click="makeList=true" ng-hide="makeList">Create New List</button>
 
 	<form ng-submit ng-show="makeList">
 		List Title: <input ng-model="title">
@@ -10,14 +10,14 @@
 	</form>
 
 
-<div ng-repeat="item in lists">
+<div class="myProfileLists" ng-repeat="item in lists">
 	<a href="#/myList/{{item.$id}}" ng-show="item.user === current_user_id"> {{item.title}}: {{item.description}} </a>
 </div>
 
 
 
 <div>
-	<button ng-click="showSuccess = true">All Successes</button>
+	<button class="viewSuccess" ng-click="showSuccess = true">View All Successes</button>
 		<div class="success" ng-show="showSuccess" ng-click="showSuccess=!showSuccess">
 
 			All the completed tasks show up and fill screen
