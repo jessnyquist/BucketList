@@ -76,7 +76,7 @@ app.controller('VisitorProfileCtrl', function($scope, $routeParams){
 
 });
 app.controller('SignUpCtrl', function($scope, $firebaseAuth, $firebaseObject, $location){
-	$scope.signUp = function(){
+	$scope.signUpWithEmail = function(){
 		console.log($scope.name);
 		console.log($scope.password);
 		console.log($scope.email);
@@ -103,15 +103,25 @@ app.controller('SignUpCtrl', function($scope, $firebaseAuth, $firebaseObject, $l
 
 app.controller('LogInCtrl', function($scope, $firebaseAuth, $routeParams, $location, $firebaseObject){
 	$scope.error = "";
-	$scope.facebookLogIn = function(){
-		console.log("log in with facebook");
-	}
+
+	$scope.authObj = $firebaseAuth();
+	var provider = new firebase.auth.FacebookAuthProvider();
+
+	$scope.loginWithFb = function() {
+
+	$scope.authObj.$signInWithPopup("facebook").then(function(result) {
+	  console.log("Signed in as:", result.user.uid);
+	}).catch(function(error) {
+	  console.error("Authentication failed:", error);
+	});
+
+}
+
 	
 	$scope.login = function() {
 		console.log($scope.email);
 		console.log($scope.password);
 	
-	$scope.authObj = $firebaseAuth();
 
     $scope.authObj.$signInWithEmailAndPassword($scope.email, $scope.password)
     .then(function(firebaseUser) {
@@ -209,7 +219,7 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 
 	};
 	$scope.successMessage = "";
->>>>>>> 4cc35b50d30bd1987a238dc68de318ad59871eb1
+
 
 	$scope.completed = function(event_key){
 		console.log("task completed!");
