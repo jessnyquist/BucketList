@@ -126,13 +126,14 @@ app.controller('LogInCtrl', function($scope, $firebaseAuth, $routeParams, $locat
 
 app.controller('ProfileCtrl', function($scope, $firebaseArray, $firebaseAuth, $routeParams, currentAuth, $firebaseObject){
 	var ref = firebase.database().ref().child('lists');
-	var allLists = $firebaseArray(ref);
+	var allLists = $firebaseObject(ref);
 	$scope.authObj = $firebaseAuth();
 	console.log(currentAuth.uid);
+	$scope.current_user_id = currentAuth.uid;
 	var myLists = [];
 	console.log(allLists);
 	for(item in allLists){
-		console.log(item);
+		console.log("Item", item);
 	}
 
 	$scope.lists = $firebaseArray(ref);
