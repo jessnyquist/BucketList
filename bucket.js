@@ -151,6 +151,8 @@ app.controller('ProfileCtrl', function($scope, $firebaseArray, $firebaseAuth, $r
 	}) 
 	$scope.title = '';
 	$scope.description = '';
+	// window.location.assign('#/myList/') it would be cool to redirect to
+	// new list page to add tasks
 	};
 
 
@@ -236,11 +238,12 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 		
 	}
 	var listRef = firebase.database().ref().child('lists');
-	var lists = firebaseObject(listRef);
+	var lists = $firebaseObject(listRef);
 	$scope.myListArray= [];
-	// angular.forEach(lists, function(value,key){
-	// 	console.log(value ":" key);
-	// });
+	console.log(lists);
+	angular.forEach(lists, function(listKey, values){
+		console.log("test loop");
+	});
 	$scope.addTo = function(){
 		console.log("add to a list");
 	}

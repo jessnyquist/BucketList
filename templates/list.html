@@ -1,4 +1,5 @@
 <h1>{{list.title}}</h1>
+<p>Created by: {{list.user}}</p>
 <div ng-repeat="(id, event) in list.events">
 
 {{event.title}}<button ng-click="isAdding = true" ng-show="firebaseUser">+</button>
