@@ -1,6 +1,6 @@
 <h1> Home Page</h1>
 <p> feed goes here?</p>
-
-<div ng-repeat="item in lists">
+Search Bucket Lists: <input ng-model="searchText">
+<div ng-repeat="item in lists | filter: searchText">
 <a href="#/list/{{item.$id}}">{{item.title}}: {{item.description}}</a>
 </div>
