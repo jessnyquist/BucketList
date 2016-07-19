@@ -18,6 +18,19 @@ app.config(function($routeProvider) {
 		controller: 'HomeCtrl',
 		templateUrl: 'templates/home.html',
 	})
+	$routeProvider.when('/myList/:listId', {
+		controller: 'MyListCtrl',
+		templateUrl: 'templates/myList.html',
+		resolve: {
+          // controller will not be loaded until $requireSignIn resolves
+          // Auth refers to our $firebaseAuth wrapper in the example above
+          "currentAuth": function($firebaseAuth) {
+                // $requireSignIn returns a promise so the resolve waits for it to complete
+                // If the promise is rejected, it will throw a $stateChangeError (see above)
+                return $firebaseAuth().$requireSignIn();
+            }
+        }
+    })
 	$routeProvider.when('/signup', {
 		controller: 'SignUpCtrl',
 		templateUrl: 'templates/signup.html',
@@ -46,15 +59,6 @@ app.config(function($routeProvider) {
 	$routeProvider.when('/list/:listId', {
 		controller: 'ListCtrl',
 		templateUrl: 'templates/list.html',
-		 resolve: {
-          // controller will not be loaded until $requireSignIn resolves
-          // Auth refers to our $firebaseAuth wrapper in the example above
-          "currentAuth": function($firebaseAuth) {
-                // $requireSignIn returns a promise so the resolve waits for it to complete
-                // If the promise is rejected, it will throw a $stateChangeError (see above)
-                return $firebaseAuth().$requireSignIn();
-            }
-        }
 	})
 });
 
@@ -144,8 +148,49 @@ app.controller('ProfileCtrl', function($scope, $firebaseArray, $firebaseAuth, $r
 
 
 });
+app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray, $firebaseAuth){
+		$scope.authObj = $firebaseAuth();
+	$scope.firebaseUser = $scope.authObj.$getAuth();
+	console.log($routeParams);
+	var list_Id = $routeParams.listId;
+	console.log(list_Id);
+	var ref= firebase.database().ref().child('lists').child(list_Id);
+	$scope.list = $firebaseObject(ref);
+	console.log($scope.list);
+	$scope.createEvent = function(){
+		var ref= firebase.database().ref().child('lists').child(list_Id).child('events');
+		var events = $firebaseArray(ref);
+		events.$add({
+			'title': $scope.eventName,
+			'created_at': Date.now(),
+			'isCompleted': false,
+		})
+		$scope.eventName='';
 
-app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray){
+	};
+	$scope.successMessage = "";
+
+	$scope.completed = function(event_key){
+		console.log("task completed!");
+		$scope.successMessage = "Congrats on finishing your task!";
+
+		var eventsRef= firebase.database().ref().child('lists').child(list_Id).child('events').child(event_key);
+		var event = $firebaseObject(eventsRef);
+		console.log(event);
+		event.isCompeted = true;
+		event.$save().then(function(ref) {
+  	eventsRef.key === event.$id; // true
+	});
+
+// we need to get it so that it updates not deletes when you change isCompleted to false
+// right now it doesn't load before so it wipes it but i don't remember 
+//how to get it to wait for the server first
+		
+}
+});
+app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray, $firebaseAuth){
+	$scope.authObj = $firebaseAuth();
+	$scope.firebaseUser = $scope.authObj.$getAuth();
 	console.log($routeParams);
 	var list_Id = $routeParams.listId;
 	console.log(list_Id);
