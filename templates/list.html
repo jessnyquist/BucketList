@@ -1,6 +1,6 @@
 <h1>{{list.title}}</h1>
 <div ng-repeat="event in list.events">
-<div class="checkBox" ng-click="isGreen = true; completed()" ng-class="{'isGreen': isGreen}"></div>{{event.title}}
+<input type="checkbox" name="completed()" ng-click="isGreen = true" ng-class="{'isGreen': isGreen}">{{event.title}}
 </div>
 <button ng-click="createNew = true" ng-hide="createNew">New Goal</button>
 <form ng-submit="createEvent()" ng-show="createNew">
