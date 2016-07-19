@@ -1,5 +1,5 @@
 <h1> Home Page</h1>
-<p> feed goes here?</p>
+<h3> Welcome to BucketList! Need inspiration? Check out lists made by other users!</h3>
 Search Bucket Lists: <input ng-model="searchText">
 <div ng-repeat="item in lists | filter: searchText">
 <a href="#/list/{{item.$id}}">{{item.title}}: {{item.description}}</a>
