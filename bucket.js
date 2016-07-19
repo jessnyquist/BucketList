@@ -235,6 +235,12 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 //how to get it to wait for the server first
 		
 	}
+	var listRef = firebase.database().ref().child('lists');
+	var lists = firebaseObject(listRef);
+	$scope.myListArray= [];
+	// angular.forEach(lists, function(value,key){
+	// 	console.log(value ":" key);
+	// });
 	$scope.addTo = function(){
 		console.log("add to a list");
 	}
