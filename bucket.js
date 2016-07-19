@@ -174,9 +174,5 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 		var eventsRef= firebase.database().ref().child('lists').child(list_Id).child('events').child(event_key);
 		var events = $firebaseObject(eventsRef);
 		console.log(event_key);
-
-		var 
 	}
-
-
 });
