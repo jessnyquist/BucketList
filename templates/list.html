@@ -1,6 +1,6 @@
 <h1>{{list.title}}</h1>
 <div ng-repeat="(id, event) in list.events">
 
-{{event.title}}<button ng-click="addTo">+</button>
+{{event.title}}<button ng-click="addTo" ng-show="firebaseUser">+</button>
 </div>
 
