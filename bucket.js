@@ -217,11 +217,11 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 		var eventsRef= firebase.database().ref().child('lists').child(list_Id).child('events').child(event_key);
 		var event = $firebaseObject(eventsRef);
 		console.log(event);
-		event.isCompeted = true;
+		event.isCompleted = true;
 		event.$save().then(function(ref) {
   	eventsRef.key === event.$id; // true
 	});
-
+	$scope.successMessage = "";
 // we need to get it so that it updates not deletes when you change isCompleted to false
 // right now it doesn't load before so it wipes it but i don't remember 
 //how to get it to wait for the server first
