@@ -1,6 +1,10 @@
 <h1>{{list.title}}</h1>
 <div ng-repeat="(id, event) in list.events">
 
-{{event.title}}<button ng-click="addTo" ng-show="firebaseUser">+</button>
+{{event.title}}<button ng-click="isAdding = true" ng-show="firebaseUser">+</button>
+<div ng-show="isAdding">
+<!-- <select ng-options="b.id as b.first_name + b.last_name for b in brus track by b.id" ng-model="selectedBru"></select> -->
+<button ng-click="addTo()">Add to List!</button>
+</div>
 </div>
 
