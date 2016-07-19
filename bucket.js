@@ -243,14 +243,17 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 		
 	}
 	var listRef = firebase.database().ref().child('lists');
-	var lists = $firebaseObject(listRef);
+	var lists = $firebaseObject(listRef).$loaded(function(){
 	$scope.myListArray= [];
 	console.log(lists);
 	angular.forEach(lists, function(listKey, values){
-		console.log("test loop");
+		console.log("test");
 	});
 	$scope.addTo = function(){
 		console.log("add to a list");
 	}
+
+	});
+
 
 });
