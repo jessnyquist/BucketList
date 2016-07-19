@@ -61,7 +61,7 @@ app.config(function($routeProvider) {
 app.controller('HomeCtrl', function($scope, $firebaseArray){
 	var ref = firebase.database().ref().child('lists');
 		$scope.lists = $firebaseArray(ref);
-	
+
 });
 app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray, $firebaseAuth){
 	$scope.authObj = $firebaseAuth();
@@ -182,6 +182,8 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 //how to get it to wait for the server first
 		
 	}
-
+	$scope.addTo = function(){
+		console.log("add to a list");
+	}
 
 });
