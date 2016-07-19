@@ -103,6 +103,7 @@ app.controller('SignUpCtrl', function($scope, $firebaseAuth, $firebaseObject, $l
 
 app.controller('LogInCtrl', function($scope, $firebaseAuth, $routeParams, $location, $firebaseObject){
 	$scope.error = "";
+	$scope.successLogin= "";
 
 	$scope.authObj = $firebaseAuth();
 	var provider = new firebase.auth.FacebookAuthProvider();
@@ -111,9 +112,13 @@ app.controller('LogInCtrl', function($scope, $firebaseAuth, $routeParams, $locat
 
 	$scope.authObj.$signInWithPopup("facebook").then(function(result) {
 	  console.log("Signed in as:", result.user.uid);
+		$scope.successLogin = "Signed in through Facebook";
+		$location.path("/");
 	}).catch(function(error) {
 	  console.error("Authentication failed:", error);
 	});
+
+	$scope.successLogin= "";
 
 }
 
