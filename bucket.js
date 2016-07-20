@@ -230,10 +230,13 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray, $firebaseAuth){
 	$scope.authObj = $firebaseAuth();
 	$scope.firebaseUser = $scope.authObj.$getAuth();
-	console.log($scope.firebaseUser['uid']);
-	console.log($routeParams);
+	console.log("routeParams", $routeParams);
 	var list_Id = $routeParams.listId;
 	console.log(list_Id);
+	console.log("firebaseUser", $scope.firebaseUser);
+	var Userref = firebase.database().ref().child('users').child($scope.firebaseUser.uid).child("email");
+	console.log(Userref);
+
 	var ref= firebase.database().ref().child('lists').child(list_Id);
 	$scope.list = $firebaseObject(ref);
 	console.log($scope.list);
