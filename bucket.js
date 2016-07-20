@@ -83,11 +83,18 @@ app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray, $fir
 	var firebaseUser = $scope.authObj.$getAuth();
 	$scope.firebaseUser = firebaseUser;
 });
-app.controller('VisitorProfileCtrl', function($scope, $routeParams){
+
+app.controller('VistorProfileCtrl', function($scope, $routeParams, $firebaseArray){
 	console.log($routeParams);
-	var profile_Id = $routeParams.profileId;
-	console.log(profile_Id);
-	var ref= firebase.database().ref().child('users').child(profile_Id);
+	$scope.profile_Id = $routeParams.profileId;
+
+	var ref = firebase.database().ref().child('lists');
+	$scope.lists = $firebaseArray(ref);
+	console.log($scope.lists);
+
+
+	// console.log(profile_Id);
+	// var ref= firebase.database().ref().child('users').child(profileId);
 });
 
 app.controller('SignUpCtrl', function($scope, $firebaseAuth, $firebaseObject, $location){
@@ -271,14 +278,23 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 	console.log("routeParams", $routeParams);
 
 	var list_Id = $routeParams.listId;
-	console.log(list_Id);
-	console.log("firebaseUser", $scope.firebaseUser);
-	var Userref = firebase.database().ref().child('users').child($scope.firebaseUser.uid).child("email");
-	console.log(Userref);
+	console.log("list_Id", list_Id);
+	var UserRef = firebase.database().ref().child('users');
+	console.log("email", UserRef);
 
-	var ref= firebase.database().ref().child('lists').child(list_Id);
+
+	var ref = firebase.database().ref().child('lists').child(list_Id);
 	$scope.list = $firebaseObject(ref);
-	console.log($scope.list);
+	$scope.list.$loaded(function() {
+		$scope.list_user = $scope.list.user;
+		var user_ref = firebase.database().ref().child('users').child($scope.list_user).child("email");
+		$scope.user_of_list_email = $firebaseObject(user_ref);
+		$scope.user_of_list_email.$loaded(function() {
+			$scope.user_email = $scope.user_of_list_email.$value;
+		});
+
+	});
+
 	$scope.createEvent = function(){
 		var ref= firebase.database().ref().child('lists').child(list_Id).child('events');
 		var events = $firebaseArray(ref);

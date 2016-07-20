@@ -1,2 +1,4 @@
-<h1>VIew of profile from visitor perspective</h1>
-<p>attached to my uid but not editable</p>
+<div class="myProfileLists" ng-repeat="item in lists">
+	<a href="#/list/{{item.$id}}" ng-show="item.user === profile_Id"> {{item.title}}: {{item.description}} </a>
+</div>
+
