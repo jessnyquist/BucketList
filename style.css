@@ -1,48 +1,64 @@
 *{
 	box-sizing: border-box;
-	font-family: 'Handlee', cursive;
+	font-family: 'Kadwa';
 }
 
 .nav {
 	display: inline-block;
 	width: 100%;
+	border-bottom: 1px solid grey;
+	margin-top: 0px;
 }
 
-.background-overlay {
-	background: rgba(271,271,271,.5);
+.background {
+	background: url(cityline.jpg) no-repeat center center fixed;
+	background-size: cover;
 }
 
 .feed {
-	margin-top: -100px;
-}
+	text-align: center;
+	font-size: 20px;
 
-.space {
-/*	margin-top: -70px;*/
 }
+/*
+.space {
+	margin-top: -80px;
+}*/
 
 .nav h1 {
 	float: left;
 	font-size: 80px;
 	color: #2CFFCB;
-	font-family: impact;
+	padding-left: 30px;
+	letter-spacing: 10px;
 }
 
 .nav h1 a {
 	text-decoration: none;
 	color: #2CFFCB;
+
 }
 
 .menu {
 	float: right;
 	font-size: 30px;
 	margin-top: 40px;
-	font-family: impact;
 	color: #1DB5F6;
+
 }
 
 .menu a {
 	color: #1DB5F6;
+	padding-left: 30px;
+	padding-right: 30px;
 }
+
+.menu a:hover {
+	text-decoration: none;
+	color: rgba(0,0,0,.5);
+}
+
+
 
 .success{
 	position:fixed;
@@ -55,8 +71,10 @@
 
 .welcomeBlurb {
 	text-align: center;
-	margin-top: 70px;
 	color: #578599;
+	margin-bottom: 40px;
+	padding-top: 100px;
+	padding-bottom: 300px;
 	margin-bottom: 40px;
 }
 
@@ -66,8 +84,9 @@
 
 .feed {
 	text-align: center;
-	margin-top: 60px;
 	font-size: 20px;
+	padding-top: 100px;
+	padding-bottom: 300px;
 }
 
 .feedBoxes {

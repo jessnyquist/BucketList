@@ -6,18 +6,19 @@
 	<title>BucketListApp</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+  
+  <link href='https://fonts.googleapis.com/css?family=Kadwa:400,700' rel='stylesheet' type='text/css'>
   
 </header>
 <body ng-app="bucketApp">
 
-	<div ng-controller="NavCtrl" class="nav feed">
-      <h1><a href="#/">buckit<a></h1>
+	<div ng-controller="NavCtrl" class="nav feed background">
+      <h1><a href="#/">BuckIt<a></h1>
       <div class="menu">
-        <a href="#/myProfile">profile</a> |
+        <a href="#/myProfile">profile</a> 
         <a href="#/login">sign in</a>
         <span>
-        {{ firebaseUser.displayName }} | <a href="#/" ng-click="authObj.$signOut()">sign out</a>
+        {{ firebaseUser.displayName }}  <a href="#/" ng-click="authObj.$signOut()">sign out</a>
         </span>
     </div>
 	</div>
