@@ -159,6 +159,8 @@ app.controller('ProfileCtrl', function($scope, $firebaseArray, $firebaseAuth, $r
 		console.log(item);
 	}
 
+	console.log('email', currentAuth.uid);
+
 	$scope.lists = $firebaseArray(ref);
 	$scope.newList = function(){
 		$scope.lists.$add({
