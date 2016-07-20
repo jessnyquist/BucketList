@@ -1,6 +1,7 @@
 <h1 class="listTitle">{{list.title}}</h1>
 
-<p>Created by: {{ list.user }}</p>
+
+<p> Created by: <a href="#/visitorProfile/{{list.user}}"> {{user_email}}</a></p>
 
 
 <div ng-repeat="(id, event) in list.events">
