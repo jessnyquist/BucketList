@@ -74,9 +74,12 @@ app.config(function($routeProvider) {
 
 app.controller('HomeCtrl', function($scope, $firebaseArray, $firebaseObject){
 	var ref = firebase.database().ref().child('lists');
-		$scope.lists = $firebaseObject(ref);
+		$scope.lists = $firebaseArray(ref);
+	
 		console.log("lists", $scope.lists);
-		console.log($scope.lists);
+		$scope.lists.$loaded(function() {
+		console.log($scope.lists.user);
+	});
 
 
 	// var ownerRef = firebase.database().ref().child('users');
