@@ -24,9 +24,9 @@
 
 	<div ng-hide="event.isEditing">
 		<span ng-dblclick= "event.isEditing = true">
-			<input type="checkbox" ng-click="completed(id)" ng-checked="event.isCompleted"> {{event.title}}
+			<input type="checkbox" ng-click="completed(id); complete = true" ng-checked="event.isCompleted"> {{event.title}}
 		</span>
-
+		<div ng-show="complete">		<input type="file" ng-model="image"></div>
 		<button ng-click= "event.isEditing = true">Edit</button>
 
 		<button ng-click= "remove($index)"> Delete </button>
@@ -38,15 +38,6 @@
 	</div>
 </div>
 
-	<div ng-show="successMessage" class="alert alert-success fade in">
-		{{successMessage}}
-		<a href="#/myList/{{lists.id}}" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<!-- Fix above redirect link so that it goes back to the list page -->
-	</div>
-
-	<div ng-show="imageAdding">
-		<input type="file" ng-model="image">
-	</div>
 	
 </div>
 
