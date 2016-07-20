@@ -179,6 +179,9 @@ app.controller('ProfileCtrl', function($scope, $firebaseArray, $firebaseAuth, $r
 app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray, $firebaseAuth){
 	$scope.authObj = $firebaseAuth();
 	$scope.firebaseUser = $scope.authObj.$getAuth();
+
+	$scope.imageAdding = false;
+
 	console.log($routeParams);
 	var list_Id = $routeParams.listId;
 	console.log(list_Id);
@@ -207,6 +210,7 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 	$scope.completed = function(event_key){
 		console.log("task completed!");
 		$scope.successMessage = "Congrats on finishing your task!";
+		$scope.imageAdding = true;
 
 		var eventsRef= firebase.database().ref().child('lists').child(list_Id).child('events').child(event_key);
 		var event = $firebaseObject(eventsRef);
