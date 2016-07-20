@@ -1,14 +1,14 @@
-<div class="feed">
-	<div class="background-overlay">
+
+	<div class="background">
 		<div class="welcomeBlurb">
 			<h1 class="welcome">Kick your excuses to the curb, Just BuckIt</h1>
 			<h3 class="">Need inspiration? Check out lists made by other users</h3>
 		</div>
+	</div>
 
 	
 		Search Bucket Lists: <input ng-model="searchText">
 		<div ng-repeat="item in lists | filter: searchText">
 		<a href="#/list/{{item.$id}}"> {{item.title}}: {{item.description}}</a>
 		</div>
-	</div>
-</div>
+	
