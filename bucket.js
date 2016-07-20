@@ -249,20 +249,7 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 	$scope.successMessage = "";
 
 
-	$scope.completed = function(event_key){
-		console.log("task completed!");
-		$scope.successMessage = "Congrats on finishing your task!";
 
-		var eventsRef= firebase.database().ref().child('lists').child(list_Id).child('events').child(event_key);
-		var event = $firebaseObject(eventsRef);
-			console.log(event);
-		
-
-// we need to get it so that it updates not deletes when you change isCompleted to false
-// right now it doesn't load before so it wipes it but i don't remember 
-//how to get it to wait for the server first
-
-}
 var listRef = firebase.database().ref().child('lists');
 var lists = $firebaseObject(listRef);
 lists.$loaded(function(){
@@ -271,20 +258,17 @@ lists.$loaded(function(){
 
 	angular.forEach(lists, function(listKey, values){
 		console.log("test");
-	$scope.addTo = function(){
-		console.log("add to a list");
-	}
+
 
 	if(listKey.user === $scope.firebaseUser['uid']){
 			$scope.myListArray.push(listKey);
 		}
-	})
-	
 
-		addTo = function(){
-		console.log("add");
-		console.log($scope.selectedList);
-		}
+	})
+		$scope.addTo = function(){
+		console.log("add to a list" + $scope.selectedList);
+	}
+
 	});
 
 });
