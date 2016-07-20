@@ -1,10 +1,20 @@
+*{
+	box-sizing: border-box;
+}
+
 .nav {
 	border: 2px solid grey;
 	display: inline-block;
 	width: 100%;
 }
+
+.background-overlay {
+	background: rgba(271,271,271,.5);
+}
+
 .feed {
-	background-image: url("places.jpg");
+	background: url("places.jpg") no-repeat center center fixed;
+	background-size: cover;
 }
 
 .nav h1 {
