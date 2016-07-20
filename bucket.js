@@ -59,6 +59,16 @@ app.config(function($routeProvider) {
 	$routeProvider.when('/list/:listId', {
 		controller: 'ListCtrl',
 		templateUrl: 'templates/list.html',
+				resolve: {
+          // controller will not be loaded until $requireSignIn resolves
+          // Auth refers to our $firebaseAuth wrapper in the example above
+          "currentAuth": function($firebaseAuth) {
+                // $requireSignIn returns a promise so the resolve waits for it to complete
+                // If the promise is rejected, it will throw a $stateChangeError (see above)
+                return $firebaseAuth().$waitForSignIn();
+            }
+        }
+
 	})
 });
 
@@ -173,12 +183,38 @@ app.controller('ProfileCtrl', function($scope, $firebaseArray, $firebaseAuth, $r
 	// window.location.assign('#/myList/') it would be cool to redirect to
 	// new list page to add tasks
 };
+var eventRef = firebase.database().ref().child('lists');
+var lists = $firebaseObject(eventRef);
+lists.$loaded(function(){
+	var myLists= [];
+	console.log(lists);
+	$scope.myCompleted = [];
+
+	angular.forEach(lists, function(listKey, values){
+
+
+	if(listKey.user === $scope.current_user_id){
+		console.log(listKey.events);
+			for(eventId in listKey.events){
+				console.log(listKey.events[eventId]);
+				if(listKey.events[eventId].isCompleted){
+					$scope.myCompleted.push(listKey.events[eventId]);
+				}
+			}
+		}
+
+	})
+	console.log($scope.myCompleted);
+});
 
 
 });
 app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray, $firebaseAuth){
 	$scope.authObj = $firebaseAuth();
 	$scope.firebaseUser = $scope.authObj.$getAuth();
+
+	$scope.imageAdding = false;
+
 	console.log($routeParams);
 	var list_Id = $routeParams.listId;
 	console.log(list_Id);
@@ -207,6 +243,7 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 	$scope.completed = function(event_key){
 		console.log("task completed!");
 		$scope.successMessage = "Congrats on finishing your task!";
+		$scope.imageAdding = true;
 
 		var eventsRef= firebase.database().ref().child('lists').child(list_Id).child('events').child(event_key);
 		var event = $firebaseObject(eventsRef);
@@ -230,7 +267,9 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray, $firebaseAuth){
 	$scope.authObj = $firebaseAuth();
 	$scope.firebaseUser = $scope.authObj.$getAuth();
+
 	console.log("routeParams", $routeParams);
+
 	var list_Id = $routeParams.listId;
 	console.log(list_Id);
 	console.log("firebaseUser", $scope.firebaseUser);
@@ -270,10 +309,13 @@ lists.$loaded(function(){
 		}
 
 	})
-		$scope.addTo = function(){
-		console.log("add to a list" + $scope.selectedList);
-	}
+
 
 	});
+$scope.data = {};
+	$scope.addTo = function(){
+		console.log("add to a listkj", $scope.data.selectedList);
+		console.log($scope.data.selectedList.$id);
+	}
 
 });

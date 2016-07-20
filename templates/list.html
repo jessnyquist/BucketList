@@ -8,8 +8,10 @@
 {{event.title}}<button ng-click="isAdding = true" ng-show="firebaseUser">+</button>
 
 	<div ng-show="isAdding">
-		<select ng-options="b.title as b.title for b in myListArray track by b.title" ng-model= "selectedList"></select>
-		<button ng-click="addTo()">Add to List!</button>
+		<select ng-options="b as b.title for b in myListArray" ng-model="data.selectedList"></select>
+	
+		<button ng-click="addTo(); isAdding = false; isAdded = true">Add to List!</button>
+		<div ng-show="isAdded">Added to List!</div>
 	</div>
 </div>
 

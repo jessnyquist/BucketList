@@ -44,6 +44,10 @@
 		<!-- Fix above redirect link so that it goes back to the list page -->
 	</div>
 
+	<div ng-show="imageAdding">
+		<input type="file" ng-model="image">
+	</div>
+	
 </div>
 
 <button ng-click="createNew = true" ng-hide="createNew">New Goal</button>
