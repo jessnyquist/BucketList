@@ -6,9 +6,17 @@
 		</div>
 
 	
-		Search Bucket Lists: <input ng-model="searchText">
+		Search Bucket Lists: <input ng-model="searchText" class="homeSearch">
+		
+
 		<div ng-repeat="item in lists | filter: searchText">
-		<a href="#/list/{{item.$id}}"> {{item.title}}: {{item.description}}</a>
+			<div>	
+				<div class="feedBoxes">
+				<img class="feedIcon" src="http://www.myleisuregroup.com/images/slider/img5.jpg">
+				<a href="#/list/{{item.$id}}"> 
+				<div class="feedBoxesTitle">{{item.title}} </a></div>
+				<div class="feedBoxesDes"> {{item.description}}</div>
+			</div>
 		</div>
 	</div>
 </div>
