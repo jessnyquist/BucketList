@@ -1,11 +1,14 @@
 <h1>{{list.title}}</h1>
 <p>Created by: {{list.user}}</p>
+
 <div ng-repeat="(id, event) in list.events">
 
 {{event.title}}<button ng-click="isAdding = true" ng-show="firebaseUser">+</button>
-<div ng-show="isAdding">
-<select ng-options="b.title as b.title for b in myListArray track by b.title" ng-model= "selectedList"></select>
-<button ng-click="addTo()">Add to List!</button>
-</div>
+
+	<div ng-show="isAdding">
+		<select ng-options="b.title as b.title for b in myListArray track by b.title" ng-model= "selectedList"></select>
+		<button ng-click="addTo()">Add to List!</button>
+	</div>
+	
 </div>
 

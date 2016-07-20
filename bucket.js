@@ -193,6 +193,12 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 		$scope.eventName='';
 
 	};
+
+	$scope.remove = function($index) {
+    	$scope[event.title].splice($index,1);
+ 	 };
+// This isn't working! - fix remove function
+
 	$scope.successMessage = "";
 
 	$scope.completed = function(event_key){
@@ -207,24 +213,14 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 			event.isCompleted = true;
 			event.$save();
 
-			$scope.eventIsCompleted = event.isCompleted;
-			console.log($scope.eventIsCompleted);
-
 		}).then(function(ref) {
 	  	eventsRef.key === event.$id; // true
 	 	 });
-
-
-		// $scope.checked = true;
-	 //      $scope.unchecked = function(checked){
-	 //        if(checked){
-	 //           $scope.checked = false;
-	 //        }else{
-	 //          $scope.checked = true;
-	 //        }
-		// }	
 	}
 
+	$scope.edit = function() {
+		console.log("edited!");
+	}
 });
 
 app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray, $firebaseAuth){

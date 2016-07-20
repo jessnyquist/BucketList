@@ -1,12 +1,42 @@
-<h1>{{list.title}}</h1>
+<div ng-hide="title.isEditing">
+	<span ng-dblclick= "title.isEditing = true">
+		<h1>{{list.title}}</h1>
+	</span>
+</div>
+
+<div ng-show = "title.isEditing">
+	<input ng-model = "list.title">	
+		<button ng-click="title.isEditing = false">
+			<div ng-click="edit()">
+				Done
+			</div>
+		</button>	
+</div>
+
+
+
+
+
+
 <div ng-repeat="(id, event) in list.events">
 
+<div>
 
-<input type="checkbox" ng-click="completed(id)"> {{event.title}}
+	<div ng-hide="event.isEditing">
+		<span ng-dblclick= "event.isEditing = true">
+			<input type="checkbox" ng-click="completed(id)" ng-checked="event.isCompleted"> {{event.title}}
+		</span>
 
-<!--  ng-true-value = "isCompleted" ng-false-value = "!isCompleted" -->
+		<button ng-click= "event.isEditing = true">Edit</button>
 
+		<button ng-click= "remove($index)"> Delete </button>
+	</div>
 
+	<div ng-show = "event.isEditing">
+		<input ng-model = "event.title">	
+			<button ng-click="event.isEditing = false" type="submit">Done</button>	
+	</div>
+</div>
 
 	<div ng-show="successMessage" class="alert alert-success fade in">
 		{{successMessage}}
