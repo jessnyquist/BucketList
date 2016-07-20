@@ -144,11 +144,22 @@ app.controller('LogInCtrl', function($scope, $firebaseAuth, $routeParams, $locat
 			console.log("Signed in as:", result.user.uid);
 			$scope.successLogin = "Signed in through Facebook";
 			$location.path("/");
+			var ref = firebase.database().ref().child('users').child(result.user.uid);
+			console.log(result.user.uid);
+			var user = $firebaseObject(ref);
+			console.log("user", user);
+			user.$loaded(function(){
+			user.name = result.user.displayName;
+			user.email = result.user.email;	
+			user.$save();
+			});
+
 		}).catch(function(error) {
 			console.error("Authentication failed:", error);
 		});
 
 		$scope.successLogin= "";
+
 
 	}
 
