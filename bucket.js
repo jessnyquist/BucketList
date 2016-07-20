@@ -213,7 +213,6 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 	$scope.authObj = $firebaseAuth();
 	$scope.firebaseUser = $scope.authObj.$getAuth();
 
-	$scope.imageAdding = false;
 
 	console.log($routeParams);
 	var list_Id = $routeParams.listId;
@@ -238,16 +237,14 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
  	 };
 // This isn't working! - fix remove function
 
-	$scope.successMessage = "";
 
 	$scope.completed = function(event_key){
 		console.log("task completed!");
-		$scope.successMessage = "Congrats on finishing your task! Add an image to celebrate:";
-		$scope.imageAdding = true;
 
 		var eventsRef= firebase.database().ref().child('lists').child(list_Id).child('events').child(event_key);
 		var event = $firebaseObject(eventsRef);
 		console.log(event);
+
 
 		event.$loaded(function() {
 			event.isCompleted = true;
@@ -267,9 +264,15 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray, $firebaseAuth){
 	$scope.authObj = $firebaseAuth();
 	$scope.firebaseUser = $scope.authObj.$getAuth();
-	console.log($routeParams);
+
+	console.log("routeParams", $routeParams);
+
 	var list_Id = $routeParams.listId;
 	console.log(list_Id);
+	console.log("firebaseUser", $scope.firebaseUser);
+	var Userref = firebase.database().ref().child('users').child($scope.firebaseUser.uid).child("email");
+	console.log(Userref);
+
 	var ref= firebase.database().ref().child('lists').child(list_Id);
 	$scope.list = $firebaseObject(ref);
 	console.log($scope.list);
@@ -309,7 +312,7 @@ lists.$loaded(function(){
 $scope.data = {};
 	$scope.addTo = function(){
 		console.log("add to a listkj", $scope.data.selectedList);
-		console.log($scope.data.selectedList.$id);
+		console.log($scope.data.selectedList.id);
 	}
 
 });
