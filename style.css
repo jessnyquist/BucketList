@@ -2,7 +2,20 @@
 	box-sizing: border-box;
 	font-family: 'Handlee', cursive;
 }
+button{
+	text-transform: lowercase;
+	background-color: white;
+	border: .5px solid black;
+	padding: 10px;
+	color: blue;
 
+}
+
+}
+button:hover{
+	background-color: black;
+	color: white;
+}
 .nav {
 	display: inline-block;
 	width: 100%;
