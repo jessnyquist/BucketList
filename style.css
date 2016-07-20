@@ -2,7 +2,20 @@
 	box-sizing: border-box;
 	font-family: 'Kadwa';
 }
+button{
+	text-transform: lowercase;
+	background-color: white;
+	border: .5px solid black;
+	padding: 10px;
+	color: blue;
 
+}
+
+}
+button:hover{
+	background-color: black;
+	color: white;
+}
 .nav {
 	display: inline-block;
 	width: 100%;
@@ -11,7 +24,7 @@
 }
 
 .background {
-	background: url(cityline.jpg) no-repeat center center fixed;
+	background: url(cityline.jpg) no-repeat center center;
 	background-size: cover;
 }
 
@@ -88,11 +101,10 @@
 	font-size: 28px;
 }
 
-.feed {
+.search {
+	margin: 0px auto;
+	width: 400px;
 	text-align: center;
-	font-size: 20px;
-	padding-top: 100px;
-	padding-bottom: 300px;
 }
 
 .feedBoxes {
