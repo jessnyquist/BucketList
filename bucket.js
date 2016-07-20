@@ -72,16 +72,30 @@ app.config(function($routeProvider) {
 	})
 });
 
-app.controller('HomeCtrl', function($scope, $firebaseArray){
+app.controller('HomeCtrl', function($scope, $firebaseArray, $firebaseObject){
 	var ref = firebase.database().ref().child('lists');
 		$scope.lists = $firebaseArray(ref);
-		console.log($scope.lists);
+	
+		console.log("lists", $scope.lists);
+		$scope.lists.$loaded(function() {
+		console.log($scope.lists.user);
+	});
+
+
+	// var ownerRef = firebase.database().ref().child('users');
+	// $scope.owner = $firebaseObject(ownerRef);
+	// $scope.owner.$loaded(function() {
+	// console.log($scope.owner);
+	// console.log($scope.profile_Id);
+	// $scope.ownerName = $scope.owner.name;
+	// console.log($scope.ownerName);
 });
 
 app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray, $firebaseAuth){
 	$scope.authObj = $firebaseAuth();
 	var firebaseUser = $scope.authObj.$getAuth();
 	$scope.firebaseUser = firebaseUser;
+
 });
 
 app.controller('VistorProfileCtrl', function($scope, $routeParams, $firebaseArray, $firebaseObject){
@@ -433,5 +447,4 @@ $scope.data = {};
 			list.$save();
 		});
 	}
-
 });
