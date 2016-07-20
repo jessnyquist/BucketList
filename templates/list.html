@@ -1,6 +1,6 @@
 <h1 class="listTitle">{{list.title}}</h1>
 
-<p>Created by: {{users[list.user] }}</p>
+<p>Created by: {{ list.user }}</p>
 
 
 <div ng-repeat="(id, event) in list.events">
@@ -8,11 +8,11 @@
 {{event.title}}<button ng-click="isAdding = true" ng-show="firebaseUser">+</button>
 
 	<div ng-show="isAdding">
-		<select ng-options="b as b.title for b in myListArray" ng-model="data.selectedList"></select>
+		<select ng-options="key as val.title for (key, val) in myListArray" ng-model="data.selectedList"></select>
 	
-		<button ng-click="addTo(); isAdding = false; isAdded = true">Add to List!</button>
-		<div ng-show="isAdded">Added to List!</div>
-	</div>
+		<button ng-click="addTo(event.title); isAdding = false; isAdded = true">Add to List!</button>
+
+	</div>		<div ng-show="isAdded">Added to List!</div>
 </div>
 
 

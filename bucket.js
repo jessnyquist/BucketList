@@ -292,28 +292,40 @@ var userRef = firebase.database().ref().child('users');
 var users = $firebaseObject(userRef);
 
 
+
 var listRef = firebase.database().ref().child('lists');
 var lists = $firebaseObject(listRef);
 lists.$loaded(function(){
-	$scope.myListArray= [];
+	$scope.myListArray= {};
 	console.log(lists);
 
-	angular.forEach(lists, function(listKey, values){
+	angular.forEach(lists, function(values, listKey){
 		console.log("test");
 
 
-	if(listKey.user === $scope.firebaseUser['uid']){
-			$scope.myListArray.push(listKey);
+		if(values.user === $scope.firebaseUser['uid']){
+			$scope.myListArray[listKey] = values;
 		}
-
+		console.log("array", $scope.myListArray);
 	})
 
 
 	});
 $scope.data = {};
-	$scope.addTo = function(){
+	$scope.addTo = function(eventName){
 		console.log("add to a listkj", $scope.data.selectedList);
-		console.log($scope.data.selectedList.id);
+		var listRef = firebase.database().ref().child('lists').child($scope.data.selectedList).child('events');
+		var list=$firebaseArray(listRef);
+		console.log(list);
+		console.log(eventName);
+		list.$loaded(function(){
+			list.$add({
+				'title': eventName,
+				'created_at': Date.now(),
+				'isCompleted': false
+			});
+			list.$save();
+		});
 	}
 
 });
