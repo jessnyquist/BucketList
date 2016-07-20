@@ -49,47 +49,48 @@
 	font-size: 20px;
 }
 
-.loginTitle {
-	font-size: 80px;
+.accessTitle {
+	font-size: 70px;
 	color: #FF7A6B;
 	margin-top: 50px;
 	text-align: center;
 }
 
-.loginForm {
+.accessForm {
 	text-align: center;
-	font-size: 30px;
+	font-size: 25px;
 }
 
 .needAccount {
-	text-align: center;
-	display: inline;
-	text-align: center;
-	margin: 0px;
-	border: 2px solid blue;
+	display: block;
+	margin-top: 120px;
+	height: 120px;
 }
 
 .needAccountBlurb {
-	float: left;
 	font-size: 25px;
 	color: #1DB5F6;
-	margin: 0px auto;
+	float: left;
+	padding-right: 20px;
 }
 
 .newAccount {
-	font-size: 23px;
+	font-size: 20px;
 	text-decoration: none;
-	float: right;
+	float: left;
 }
 
 .newAccount a {
 	text-decoration: none;
 }
 
-.fb-btn {
-	width: 50%;
-	height: 50px;
-	font-family: 20px;
+.fblogin {
+	height: 85px;
+	margin-top: 30px;
+	color: orange;
+	margin: 0px auto;
+	display: block;
+	width: 20%;
 }
 
 .loginOr {
@@ -98,6 +99,34 @@
 	margin-top: 20px;
 	color: #FF7A6B;
 }
+
+.myListsTitle {
+	color: #FF7A6B;
+	font-size: 60px;
+}
+
+.makeNewList {
+	font-size: 20px;
+	margin-top: 30px;
+}
+
+.myProfileLists {
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+.viewSuccess {
+	font-size: 20px;
+	margin-top: 30px;
+}
+
+.listTitle {
+	color: #FF7A6B;
+	font-size: 60px;
+	margin-top:;
+}
+
+
 /*.checkBox {
 	height: 10px;
 	width: 10px;

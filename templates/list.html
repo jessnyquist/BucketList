@@ -1,5 +1,7 @@
-<h1>{{list.title}}</h1>
+<h1 class="listTitle">{{list.title}}</h1>
+
 <p>Created by: {{list.user}}</p>
+
 
 <div ng-repeat="(id, event) in list.events">
 
@@ -9,6 +11,6 @@
 		<select ng-options="b.title as b.title for b in myListArray track by b.title" ng-model= "selectedList"></select>
 		<button ng-click="addTo()">Add to List!</button>
 	</div>
-	
 </div>
+
 
