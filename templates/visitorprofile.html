@@ -1,3 +1,5 @@
+<p>{{ ownerName }}'s Profile</p>
+
 <div class="myProfileLists" ng-repeat="item in lists">
 	<a href="#/list/{{item.$id}}" ng-show="item.user === profile_Id"> {{item.title}}: {{item.description}} </a>
 </div>

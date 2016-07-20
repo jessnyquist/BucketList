@@ -84,7 +84,7 @@ app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray, $fir
 	$scope.firebaseUser = firebaseUser;
 });
 
-app.controller('VistorProfileCtrl', function($scope, $routeParams, $firebaseArray){
+app.controller('VistorProfileCtrl', function($scope, $routeParams, $firebaseArray, $firebaseObject){
 	console.log($routeParams);
 	$scope.profile_Id = $routeParams.profileId;
 
@@ -92,6 +92,14 @@ app.controller('VistorProfileCtrl', function($scope, $routeParams, $firebaseArra
 	$scope.lists = $firebaseArray(ref);
 	console.log($scope.lists);
 
+	var ownerRef = firebase.database().ref().child('users').child($scope.profile_Id);
+	$scope.owner = $firebaseObject(ownerRef);
+	$scope.owner.$loaded(function() {
+	console.log($scope.owner);
+	console.log($scope.profile_Id);
+	$scope.ownerName = $scope.owner.name;
+	console.log($scope.ownerName);
+});
 
 	// console.log(profile_Id);
 	// var ref= firebase.database().ref().child('users').child(profileId);
