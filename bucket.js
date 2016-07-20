@@ -83,11 +83,26 @@ app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray, $fir
 	var firebaseUser = $scope.authObj.$getAuth();
 	$scope.firebaseUser = firebaseUser;
 });
-app.controller('VisitorProfileCtrl', function($scope, $routeParams){
+
+app.controller('VistorProfileCtrl', function($scope, $routeParams, $firebaseArray, $firebaseObject){
 	console.log($routeParams);
-	var profile_Id = $routeParams.profileId;
-	console.log(profile_Id);
-	var ref= firebase.database().ref().child('users').child(profile_Id);
+	$scope.profile_Id = $routeParams.profileId;
+
+	var ref = firebase.database().ref().child('lists');
+	$scope.lists = $firebaseArray(ref);
+	console.log($scope.lists);
+
+	var ownerRef = firebase.database().ref().child('users').child($scope.profile_Id);
+	$scope.owner = $firebaseObject(ownerRef);
+	$scope.owner.$loaded(function() {
+	console.log($scope.owner);
+	console.log($scope.profile_Id);
+	$scope.ownerName = $scope.owner.name;
+	console.log($scope.ownerName);
+});
+
+	// console.log(profile_Id);
+	// var ref= firebase.database().ref().child('users').child(profileId);
 });
 
 app.controller('SignUpCtrl', function($scope, $firebaseAuth, $firebaseObject, $location){
@@ -129,11 +144,22 @@ app.controller('LogInCtrl', function($scope, $firebaseAuth, $routeParams, $locat
 			console.log("Signed in as:", result.user.uid);
 			$scope.successLogin = "Signed in through Facebook";
 			$location.path("/");
+			var ref = firebase.database().ref().child('users').child(result.user.uid);
+			console.log(result.user.uid);
+			var user = $firebaseObject(ref);
+			console.log("user", user);
+			user.$loaded(function(){
+			user.name = result.user.displayName;
+			user.email = result.user.email;	
+			user.$save();
+			});
+
 		}).catch(function(error) {
 			console.error("Authentication failed:", error);
 		});
 
 		$scope.successLogin= "";
+
 
 	}
 
@@ -301,14 +327,23 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 	console.log("routeParams", $routeParams);
 
 	var list_Id = $routeParams.listId;
-	console.log(list_Id);
-	console.log("firebaseUser", $scope.firebaseUser);
-	var Userref = firebase.database().ref().child('users').child($scope.firebaseUser.uid).child("email");
-	console.log(Userref);
+	console.log("list_Id", list_Id);
+	var UserRef = firebase.database().ref().child('users');
+	console.log("email", UserRef);
 
-	var ref= firebase.database().ref().child('lists').child(list_Id);
+
+	var ref = firebase.database().ref().child('lists').child(list_Id);
 	$scope.list = $firebaseObject(ref);
-	console.log($scope.list);
+	$scope.list.$loaded(function() {
+		$scope.list_user = $scope.list.user;
+		var user_ref = firebase.database().ref().child('users').child($scope.list_user).child("email");
+		$scope.user_of_list_email = $firebaseObject(user_ref);
+		$scope.user_of_list_email.$loaded(function() {
+			$scope.user_email = $scope.user_of_list_email.$value;
+		});
+
+	});
+
 	$scope.createEvent = function(){
 		var ref= firebase.database().ref().child('lists').child(list_Id).child('events');
 		var events = $firebaseArray(ref);
@@ -321,31 +356,44 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 
 	};
 	$scope.successMessage = "";
+var userRef = firebase.database().ref().child('users');
+var users = $firebaseObject(userRef);
 
 
 
 var listRef = firebase.database().ref().child('lists');
 var lists = $firebaseObject(listRef);
 lists.$loaded(function(){
-	$scope.myListArray= [];
+	$scope.myListArray= {};
 	console.log(lists);
 
-	angular.forEach(lists, function(listKey, values){
+	angular.forEach(lists, function(values, listKey){
 		console.log("test");
 
 
-	if(listKey.user === $scope.firebaseUser['uid']){
-			$scope.myListArray.push(listKey);
+		if(values.user === $scope.firebaseUser['uid']){
+			$scope.myListArray[listKey] = values;
 		}
-
+		console.log("array", $scope.myListArray);
 	})
 
 
 	});
 $scope.data = {};
-	$scope.addTo = function(){
+	$scope.addTo = function(eventName){
 		console.log("add to a listkj", $scope.data.selectedList);
-		console.log($scope.data.selectedList.id);
+		var listRef = firebase.database().ref().child('lists').child($scope.data.selectedList).child('events');
+		var list=$firebaseArray(listRef);
+		console.log(list);
+		console.log(eventName);
+		list.$loaded(function(){
+			list.$add({
+				'title': eventName,
+				'created_at': Date.now(),
+				'isCompleted': false
+			});
+			list.$save();
+		});
 	}
 
 });
