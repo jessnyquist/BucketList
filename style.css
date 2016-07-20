@@ -8,10 +8,8 @@ button{
 	border: .5px solid black;
 	padding: 10px;
 	color: blue;
-
 }
 
-}
 button:hover{
 	background-color: black;
 	color: white;
@@ -19,13 +17,15 @@ button:hover{
 .nav {
 	display: inline-block;
 	width: 100%;
-	border-bottom: 1px solid grey;
+	/*border-bottom: 1px solid grey;*/
 	margin-top: 0px;
+	background-color: rgba(271, 271, 271, .05);
 }
 
 .background {
 	background: url(cityline.jpg) no-repeat center center;
 	background-size: cover;
+	margin-top: -150px;
 }
 
 .feed {
@@ -48,8 +48,7 @@ button:hover{
 
 .nav h1 a {
 	text-decoration: none;
-	color: #2CFFCB;
-
+	color: #1DB5F6;
 }
 
 .menu {
@@ -84,10 +83,10 @@ button:hover{
 
 .welcomeBlurb {
 	text-align: center;
-	color: #578599;
+	color: rgba(72, 199, 167, 1);
 	margin-bottom: 40px;
-	padding-top: 100px;
-	padding-bottom: 300px;
+	padding-top: 200px;
+	padding-bottom: 350px;
 	margin-bottom: 40px;
 }
 
@@ -105,6 +104,10 @@ button:hover{
 	margin: 0px auto;
 	width: 400px;
 	text-align: center;
+}
+
+.bottomhome {
+	background-color: rgba(65, 91, 187, 0.09);
 }
 
 .feedBoxes {
