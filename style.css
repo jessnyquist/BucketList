@@ -3,6 +3,9 @@
 	display: inline-block;
 	width: 100%;
 }
+.feed {
+	background-image: url("places.jpg");
+}
 
 .nav h1 {
 	float: left;
