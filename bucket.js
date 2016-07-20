@@ -233,13 +233,29 @@ app.controller('ProfileCtrl', function($scope, $firebaseArray, $firebaseAuth, $r
 
 		})
 		console.log($scope.myCompleted);
-
-	
+});
 
 });
 
 
-});
+// app.directive("fileread", function () {
+//     return {
+//         scope: {
+//             fileread: "="
+//         },
+//         link: function (scope, element, attributes) {
+//             element.bind("change", function (changeEvent) {
+//                 scope.$apply(function () {
+//                     scope.fileread = changeEvent.target.files[0];
+//                     // or all selected files:
+//                     // scope.fileread = changeEvent.target.files;
+//                 });
+//             });
+//         }
+//     }
+// });
+
+
 app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray, $firebaseAuth){
 	$scope.authObj = $firebaseAuth();
 	$scope.firebaseUser = $scope.authObj.$getAuth();
@@ -292,30 +308,52 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 	}
 
 	$scope.uploadImage = function () { 
-       console.log($scope.fileName);
-       var f = document.getElementById('file').files[0],
-        	r = new FileReader();
-       console.log(f);
-       r.onloadend = function(e){
-          var data = e.target.result;
-      }    
-      r.readAsBinaryString(f);
 
-       var storageRef = firebase.storage().ref('images/' + f.name);
-       var uploadTask = storageRef.put(f);
-       
-       uploadTask.on('state_changed', function(snapshot){
-         // Observe state change events such as progress, pause, and resume
-         // See below for more detail
-       }, function(error) {
-         // Handle unsuccessful uploads
-       }, function() {
-         // Handle successful uploads on complete
-         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-         var downloadURL = uploadTask.snapshot.downloadURL;
-         console.log(downloadURL);
-       });
-   }
+		console.log("add image!");
+		// var imgRef = firebase.storage().ref().child($scope.newMessage.image.name);
+  //  		var uploadTask = imgRef.put($scope.newMessage.image)// Listen for state changes, errors, and completion of the upload.
+  //  		 uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+  //  		 function(snapshot) {
+  //     		// Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+  //    	 var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+  //   	 console.log('Upload is ' + progress + '% done');
+  //  		 }, function(error) {
+  //  		   console.log(error);
+  //  		 }, function() {
+	 //      // Upload completed successfully, now we can get the download URL
+	 //      var downloadURL = uploadTask.snapshot.downloadURL;
+	 //      console.log("Download", downloadURL, $scope.newMessage);
+	 //      $scope.messages.$add({
+	 //        sender: currentAuth.uid,
+	 //        text: $scope.newMessage.text,
+	 //        image: downloadURL,
+	 //        created_at: Date.now()
+	 //      });
+	 //    });
+
+
+
+		// console.log($scope.fileName); 
+		// var f = document.getElementById('file').files[0]; 
+		// 	r = new FileReader();
+		// console.log(f);
+		// r.onloadend = function(e){
+		// 	var data = e.target.result;
+
+		// }
+		// r.readAsBinaryString(f);
+
+
+		// var imgRef = firebase.storage().ref(f.name);
+		// var uploadTask = imgRef.put(f); 
+		// uploadTask.on('state_changed', function(snapshot){
+
+		// }, function(error) {
+
+		// }, function() {
+		// 	$scope.downloadURL = uploadTask.snapshot.downloadURL;
+		// });
+	}
 
 
 });
