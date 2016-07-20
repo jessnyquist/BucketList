@@ -6,6 +6,6 @@
 <div class="feed">
 	Search Bucket Lists: <input ng-model="searchText">
 	<div ng-repeat="item in lists | filter: searchText">
-	<a href="#/list/{{item.$id}}">{{item.title}}: {{item.description}}</a>
+	<a href="#/list/{{item.$id}}"> {{item.title}}: {{item.description}} </a>
 	</div>
 </div>
