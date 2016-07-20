@@ -22,7 +22,10 @@
 
 			All the completed tasks show up and fill screen
 			<div ng-repeat="item in myCompleted">
-					{{item.title}}
+					<div>
+						{{item.title}}
+						<img ng-src="{{completedPic}}"/> 
+					</div>
 				</div>
 			</div>
 

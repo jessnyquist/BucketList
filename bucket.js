@@ -154,6 +154,8 @@ app.controller('LogInCtrl', function($scope, $firebaseAuth, $routeParams, $locat
 	}
 });
 
+
+
 app.controller('ProfileCtrl', function($scope, $firebaseArray, $firebaseAuth, $routeParams, currentAuth, $firebaseObject){
 	$scope.authObj = $firebaseAuth();
 	console.log(currentAuth.uid);
@@ -183,28 +185,31 @@ app.controller('ProfileCtrl', function($scope, $firebaseArray, $firebaseAuth, $r
 	// window.location.assign('#/myList/') it would be cool to redirect to
 	// new list page to add tasks
 };
-var eventRef = firebase.database().ref().child('lists');
-var lists = $firebaseObject(eventRef);
-lists.$loaded(function(){
-	var myLists= [];
-	console.log(lists);
-	$scope.myCompleted = [];
+	var eventRef = firebase.database().ref().child('lists');
+	var lists = $firebaseObject(eventRef);
+	lists.$loaded(function(){
+		var myLists= [];
+		console.log(lists);
+		$scope.myCompleted = [];
 
-	angular.forEach(lists, function(listKey, values){
+		angular.forEach(lists, function(listKey, values){
 
 
-	if(listKey.user === $scope.current_user_id){
-		console.log(listKey.events);
-			for(eventId in listKey.events){
-				console.log(listKey.events[eventId]);
-				if(listKey.events[eventId].isCompleted){
-					$scope.myCompleted.push(listKey.events[eventId]);
+		if(listKey.user === $scope.current_user_id){
+			console.log(listKey.events);
+				for(eventId in listKey.events){
+					console.log(listKey.events[eventId]);
+					if(listKey.events[eventId].isCompleted){
+						$scope.myCompleted.push(listKey.events[eventId]);
+					}
 				}
 			}
-		}
 
-	})
-	console.log($scope.myCompleted);
+		})
+		console.log($scope.myCompleted);
+
+	
+
 });
 
 
@@ -259,6 +264,34 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 		console.log("edited!");
 		
 	}
+
+	$scope.uploadImage = function () { 
+       console.log($scope.fileName);
+       var f = document.getElementById('file').files[0],
+        	r = new FileReader();
+       console.log(f);
+       r.onloadend = function(e){
+          var data = e.target.result;
+      }    
+      r.readAsBinaryString(f);
+
+       var storageRef = firebase.storage().ref('images/' + f.name);
+       var uploadTask = storageRef.put(f);
+       
+       uploadTask.on('state_changed', function(snapshot){
+         // Observe state change events such as progress, pause, and resume
+         // See below for more detail
+       }, function(error) {
+         // Handle unsuccessful uploads
+       }, function() {
+         // Handle successful uploads on complete
+         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+         var downloadURL = uploadTask.snapshot.downloadURL;
+         console.log(downloadURL);
+       });
+   }
+
+
 });
 
 app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray, $firebaseAuth){

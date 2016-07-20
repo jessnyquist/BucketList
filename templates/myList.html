@@ -26,10 +26,17 @@
 		<span ng-dblclick= "event.isEditing = true">
 			<input type="checkbox" ng-click="completed(id); complete = true" ng-checked="event.isCompleted"> {{event.title}}
 		</span>
-		<div ng-show="complete">		<input type="file" ng-model="image"></div>
+
 		<button ng-click= "event.isEditing = true">Edit</button>
 
 		<button ng-click= "remove($index)"> Delete </button>
+
+		<div ng-show="complete">	
+			<form>
+				<input type="file" id="file">
+				<button ng-click="uploadImage()"> Upload! </button>
+			</form>
+		</div>
 	</div>
 
 	<div ng-show = "event.isEditing">
