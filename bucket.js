@@ -288,7 +288,8 @@ app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$fireb
 
 	};
 	$scope.successMessage = "";
-
+var userRef = firebase.database().ref().child('users');
+var users = $firebaseObject(userRef);
 
 
 var listRef = firebase.database().ref().child('lists');
