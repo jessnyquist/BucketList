@@ -64,7 +64,8 @@ app.config(function($routeProvider) {
 
 app.controller('HomeCtrl', function($scope, $firebaseArray){
 	var ref = firebase.database().ref().child('lists');
-		$scope.lists = $firebaseArray(ref)
+		$scope.lists = $firebaseArray(ref);
+		console.log($scope.lists);
 });
 
 app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray, $firebaseAuth){
@@ -220,13 +221,14 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 
 	$scope.edit = function() {
 		console.log("edited!");
+		
 	}
 });
 
 app.controller('ListCtrl', function($scope, $routeParams, $firebaseObject,$firebaseArray, $firebaseAuth){
 	$scope.authObj = $firebaseAuth();
 	$scope.firebaseUser = $scope.authObj.$getAuth();
-	// console.log($scope.firebaseUser['uid']);
+	console.log($scope.firebaseUser['uid']);
 	console.log($routeParams);
 	var list_Id = $routeParams.listId;
 	console.log(list_Id);
@@ -266,21 +268,23 @@ var lists = $firebaseObject(listRef);
 lists.$loaded(function(){
 	$scope.myListArray= [];
 	console.log(lists);
+
 	angular.forEach(lists, function(listKey, values){
 		console.log("test");
-	
 	$scope.addTo = function(){
 		console.log("add to a list");
 	}
-})
 
 	if(listKey.user === $scope.firebaseUser['uid']){
 			$scope.myListArray.push(listKey);
 		}
-	});
+	})
 	
-	});
+
 		addTo = function(){
 		console.log("add");
 		console.log($scope.selectedList);
-	}
+		}
+	});
+
+});
