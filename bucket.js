@@ -242,7 +242,7 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 
 	$scope.completed = function(event_key){
 		console.log("task completed!");
-		$scope.successMessage = "Congrats on finishing your task!";
+		$scope.successMessage = "Congrats on finishing your task! Add an image to celebrate:";
 		$scope.imageAdding = true;
 
 		var eventsRef= firebase.database().ref().child('lists').child(list_Id).child('events').child(event_key);
