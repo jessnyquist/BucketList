@@ -1,8 +1,8 @@
 <div class="big-container">
 
-<h1 class="myListsTitle">My Lists</h1>
+	<h1 class="myListsTitle">My Lists</h1>
 
-<button class="makeNewList" ng-click="makeList=true" ng-hide="makeList">Create New List</button>
+	<button class="makeNewList" ng-click="makeList=true" ng-hide="makeList">Create New List</button>
 
 	<form ng-submit ng-show="makeList">
 		List Title: <input ng-model="title">
@@ -12,27 +12,81 @@
 	</form>
 
 
-<div class="myProfileLists" ng-repeat="item in lists">
-	<a href="#/myList/{{item.$id}}" ng-show="item.user === current_user_id"> *            {{item.title}}: {{item.description}} </a>
-</div>
+	<div class="myProfileLists" ng-repeat="item in lists">
+		<a href="#/myList/{{item.$id}}" ng-show="item.user === current_user_id"> *            {{item.title}}: {{item.description}} </a>
+	</div>
 
 
 
-<div>
-	<button class="viewSuccess" ng-click="showSuccess = true">View All Successes</button>
+	<div>
+		<button class="viewSuccess" ng-click="showSuccess = true">View All Successes</button>
 		<div class="success" ng-show="showSuccess" ng-click="showSuccess=!showSuccess">
-
-			All the completed tasks show up and fill screen
-			<div ng-repeat="item in myCompleted">
+			<div class="successbox">
+				<div class="picture one">
+					<div class="shadow">
+						<h1>empire state building</h1>
+						<p>completed 1/09/16</p>
+					</div>
+				</div>
+				<div class="picture two">
+					<div class="shadow">
+						<h1>washington monument</h1>
+						<p>completed 2/16/16</p>
+					</div>
+				</div>
+				<div class="picture three">
+					<div class="shadow">
+						<h1>supreme court</h1>
+						<p>completed 2/17/16</p>
+					</div>
+				</div>
+				<div class="picture four">
+					<div class="shadow">
+						<h1>hike crested peak</h1>
+						<p>completed 3/17/16</p>
+					</div>
+				</div>
+				<div class="picture five">
+					<div class="shadow">
+						<h1>sand dunes</h1>
+						<p>completed 5/13/16</p>
+					</div>
+				</div>
+				<div class="picture six">
+					<div class="shadow">
+						<h1>surfing</h1>
+						<p>completed 7/03/16</p>
+					</div>
+				</div>
+				<div class="picture seven">
+					<div class="shadow">
+						<h1>winery</h1>
+						<p>completed 7/06/16</p>
+					</div>
+				</div>
+				<div class="picture eight">
+					<div class="shadow">
+						<h1>rugby</h1>
+						<p>completed 7/15/16</p>
+					</div>
+				</div>
+				<div class="picture nine">						
+					<div class="shadow">
+						<h1>table mountain</h1>
+						<p>completed 7/20/16</p>
+					</div>
+				</div>
+			</div>
+	<!-- 		<div ng-repeat="item in myCompleted">
 					<div>
 						{{item.title}}
 						<p> completed on {{item.completed_on|date}}</p>
 						<img ng-src="{{$scope.downloadURL}}"/> 
 					</div>
-				</div>
+				</div> -->
 			</div>
 
 		</div>
-</div>
+	</div>
 
 </div>

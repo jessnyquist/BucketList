@@ -20,6 +20,62 @@ button:hover{
 	color: white;
 }
 
+.shadow {
+	opacity: 0;
+	background-color: rgba(271, 271, 271, .3);
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+}
+.shadow:hover{
+	opacity: 1;
+}
+.shadow h1{
+	color:black;
+	text-align: center;
+	padding-top: 30px;
+}
+.shadow p{
+	color:black;
+	text-align: center;
+}
+.picture{
+	width:250px;
+	height: 250px;
+/*	border: solid white .5px;*/
+	float:left;
+	position: relative;
+	background-position: center center;
+}
+.one {
+	background-image: url('newyork.jpg');
+}
+.two {
+	background-image: url('monument.jpg');
+}
+.three {
+	background-image: url('dc.jpg');
+}
+.four {
+	background-image: url('hike.jpg');
+}
+.five {
+	background-image: url('sand.jpg');
+}
+.six {
+	background-image: url('surfing.jpg');
+}
+.seven {
+	background-image: url('winetasting.jpg');
+}
+.eight {
+	background-image: url('rugby.jpg');
+}
+.nine {
+	background-image: url('tablemountain.jpg');
+}
 .nav {
 	display: inline-block;
 	width: 100%;
@@ -81,7 +137,11 @@ button:hover{
 	color: rgba(0,0,0,.5);
 }
 
-
+.successbox{
+	width:750px;
+	margin-left:50%;
+	transform: translate(-50%,0%);
+}
 
 .success{
 	position:fixed;
@@ -89,7 +149,7 @@ button:hover{
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
-	background-color: rgba(0,0,0,.3);
+	background-color: rgba(0,0,0,.7);
 }
 
 .welcomeBlurb {
