@@ -45,7 +45,7 @@ video.fullscreen {
     text-align: center;
     color: #ffcc00;
     margin-bottom: 40px;
-    padding-top: 300px;
+    padding-top: 250px;
     padding-bottom: 200px;
     margin-bottom: 40px;
     margin: 0px auto;
@@ -164,7 +164,6 @@ button:hover{
 .nav h1 {
     float: left;
     font-size: 80px;
-    color: white;
     padding-left: 30px;
     letter-spacing: 10px;
 }
@@ -216,17 +215,41 @@ button:hover{
     align: center;
     margin: 0px auto;
     margin-bottom: 40px;
-    font-size: 28px;
-    color: #578599;
+    font-size: 20px;
+    color: #1DB5F6;
+    padding-top: 20px;
 }
 .search {
     margin: 0px auto;
     width: 400px;
     text-align: center;
 }
-.bottomhome {
-    background-color: rgba(65, 91, 187, 0.09);
+
+.arrow {
+    position: absolute;
+/*    bottom: 30px;*/
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 3;
+    height: 70px;
+    margin: 0px auto;
+    text-align: center;
+    display: block;
+    margin-top: -110px;
 }
+
+.homeBottom {
+    background-color: rgba(255, 204, 0, .1);
+    margin-top: -30px;
+}
+
+#inspir {
+    padding-top: 80px;
+    text-align: center;
+    color: #1DB5F6;
+    font-size: 30px;
+}
+
 .feedBoxes {
     border-top: 1px solid grey;
     padding: 15px;
@@ -241,13 +264,13 @@ button:hover{
     float: left;
     padding-right: 20px;
     padding-left: 10px;
+    padding-bottom: 8px;
 }
 .feedBoxesTitle {
-    font-size: 33px;
-    color: #1DB5F6;
+    font-size: 28px;
 }
 .feedBoxesTitle a {
-    color: #1DB5F6;
+    color: rgba(72, 199, 167, 1);
 }
 
 .feedBoxesTitle a:hover {

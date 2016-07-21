@@ -3,7 +3,7 @@
 
 		<div class="video-container">
 		
-			<video loop muted autoplay poster= "opening-img.png" class="opening-img"> 
+			<video loop muted autoplay> 
 				<source src="buckit.mp4" type= "video/mp4"/>
 			</video>
 
@@ -11,15 +11,13 @@
 				<h1 class="welcome"> Kick your excuses to the curb, <br> Just BuckIt</h1>
 			</div>
 
-			<a href="#welcome-search">
-				<img src="https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-08-128.png"/>
-			</a>
-			
+
+			<div><a class="page-scroll arrow" a href="#inspir"><img src="http://static.tumblr.com/qbvapn5/SOQnjkcx0/arrow-down_2x.png" class="arrow"/></a></div>
 		</div>
 
 	</div>
-	<div id="welcome-search">
-		<h3 class="welcome">Need inspiration? Check out lists made by other users</h3>
+	<div class="homeBottom">
+		<h3 id="inspir">Need inspiration? Check out lists made by other users</h3>
 		<div class="homeSearch">Search Bucket Lists: <input ng-model="searchText"></div>
 	
 		<div ng-repeat="item in lists | filter: searchText">
@@ -33,4 +31,7 @@
 		</div>
 	
 	</div>
+
 </div>
+
+<!-- poster= "opening-img.png" -->
