@@ -5,9 +5,11 @@
     box-sizing: border-box;
     font-family: 'Kadwa';
 }
+
 a:hover {
     text-decoration: none;
 }
+
 button{
     text-transform: lowercase;
     background-color: white;
@@ -19,6 +21,65 @@ button:hover{
     background-color: black;
     color: white;
 }
+
+.shadow {
+	opacity: 0;
+	background-color: rgba(271, 271, 271, .3);
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+}
+.shadow:hover{
+	opacity: 1;
+}
+.shadow h1{
+	color:black;
+	text-align: center;
+	padding-top: 30px;
+}
+.shadow p{
+	color:black;
+	text-align: center;
+}
+.picture{
+	width:250px;
+	height: 250px;
+/*	border: solid white .5px;*/
+	float:left;
+	position: relative;
+	background-position: center center fixed;
+	background-size: cover;
+}
+.one {
+	background-image: url('newyork.jpg');
+}
+.two {
+	background-image: url('monument.jpg');
+}
+.three {
+	background-image: url('dc.jpg');
+}
+.four {
+	background-image: url('hike.jpg');
+}
+.five {
+	background-image: url('sand.jpg');
+}
+.six {
+	background-image: url('surfing.jpg');
+}
+.seven {
+	background-image: url('winetasting.jpg');
+}
+.eight {
+	background-image: url('rugby.jpg');
+}
+.nine {
+	background-image: url('tablemountain.jpg');
+}
+
 .nav {
     display: inline-block;
     width: 100%;
@@ -72,6 +133,7 @@ button:hover{
     text-decoration: none;
     color: rgba(0,0,0,.5);
 }
+<<<<<<< HEAD
 .success{
     position:fixed;
     top: 0px;
@@ -79,6 +141,22 @@ button:hover{
     left: 0px;
     right: 0px;
     background-color: rgba(0,0,0,.3);
+=======
+
+.successbox{
+	width:750px;
+	margin-left:50%;
+	transform: translate(-50%,0%);
+}
+
+.success{
+	position:fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: rgba(0,0,0,.7);
+>>>>>>> a565a19ad8e4c6563f41408e3ca384f67c9a057a
 }
 .welcomeBlurb {
     text-align: center;
@@ -129,6 +207,15 @@ button:hover{
 .feedBoxesTitle a {
     color: #1DB5F6;
 }
+<<<<<<< HEAD
+=======
+
+.feedBoxesTitle a:hover {
+	color: #1DB5F6;
+	text-decoration: none;
+}
+
+>>>>>>> a565a19ad8e4c6563f41408e3ca384f67c9a057a
 .feedBoxesDes {
     font-size: 20px;
     color: #578599;
@@ -224,6 +311,15 @@ button:hover{
 .add {
     padding-right: 10px;
 }
+<<<<<<< HEAD
+=======
+.add-btn{
+	padding: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border: none;
+}
+>>>>>>> a565a19ad8e4c6563f41408e3ca384f67c9a057a
 .subtitle{
     color: green;
     display: inline-block;
