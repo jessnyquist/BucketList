@@ -167,7 +167,6 @@ app.controller('LogInCtrl', function($scope, $firebaseAuth, $routeParams, $locat
 			user.email = result.user.email;	
 			user.$save();
 			});
-
 		}).catch(function(error) {
 			console.error("Authentication failed:", error);
 		});
