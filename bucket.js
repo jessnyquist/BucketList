@@ -89,6 +89,7 @@ app.controller('HomeCtrl', function($scope, $firebaseArray, $firebaseObject){
 	// console.log($scope.profile_Id);
 	// $scope.ownerName = $scope.owner.name;
 	// console.log($scope.ownerName);
+
 });
 
 app.controller('NavCtrl', function($scope, $firebaseObject, $firebaseArray, $firebaseAuth){
