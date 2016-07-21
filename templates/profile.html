@@ -26,6 +26,7 @@
 			<div ng-repeat="item in myCompleted">
 					<div>
 						{{item.title}}
+						<p> completed on {{item.completed_on|date}}</p>
 						<img ng-src="{{$scope.downloadURL}}"/> 
 					</div>
 				</div>

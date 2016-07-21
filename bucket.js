@@ -309,6 +309,7 @@ app.controller('MyListCtrl', function($scope, $routeParams, $firebaseObject,$fir
 
 		event.$loaded(function() {
 			event.isCompleted = true;
+			event.completed_on = Date.now();
 			event.$save();
 
 		}).then(function(ref) {
