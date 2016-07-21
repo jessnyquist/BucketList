@@ -3,10 +3,6 @@
 	font-family: 'Kadwa';
 }
 
-a:hover {
-	text-decoration: none;
-}
-
 button{
 	text-transform: lowercase;
 	background-color: white;
@@ -47,7 +43,8 @@ button:hover{
 /*	border: solid white .5px;*/
 	float:left;
 	position: relative;
-	background-position: center center;
+	background-position: center center fixed;
+	background-size: cover;
 }
 .one {
 	background-image: url('newyork.jpg');
@@ -208,6 +205,11 @@ button:hover{
 	color: #1DB5F6;
 }
 
+.feedBoxesTitle a:hover {
+	color: #1DB5F6;
+	text-decoration: none;
+}
+
 .feedBoxesDes {
 	font-size: 20px;
 	color: #578599;
@@ -321,7 +323,12 @@ button:hover{
 .add {
 	padding-right: 10px;
 }
-
+.add-btn{
+	padding: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border: none;
+}
 .subtitle{
 	color: green;
 	display: inline-block;
