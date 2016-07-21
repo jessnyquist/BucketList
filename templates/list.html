@@ -1,3 +1,5 @@
+<div class="big-container">
+
 <h1 class="listTitle">{{list.title}}</h1>
 
 
@@ -6,7 +8,14 @@
 
 <div ng-repeat="(id, event) in list.events">
 
-{{event.title}}<button ng-click="isAdding = true" ng-show="firebaseUser">+</button>
+
+
+<div class="add">
+{{event.title}}
+	<button class="add-btn" ng-click="isAdding = true" ng-show="firebaseUser">
+	+
+	</button>
+</div>
 
 	<div ng-show="isAdding">
 		<select ng-options="key as val.title for (key, val) in myListArray" ng-model="data.selectedList"></select>
@@ -16,4 +25,6 @@
 	</div>		<div ng-show="isAdded">Added to List!</div>
 </div>
 
+
+</div>
 
