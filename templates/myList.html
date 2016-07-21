@@ -30,8 +30,8 @@
 
 			<div ng-show="complete">	
 				<form>
-					<input type="file" fileread="newMessage.image">
-					<button ng-click="uploadImage()"> Upload! </button>
+					<input type="file" id= 'file' fileread="newMessage.image" ng-model="newMessage.image">
+					<button ng-click="uploadImage(id)"> Upload! </button>
 				</form>
 			</div>
 		</div>
