@@ -7,10 +7,6 @@
     font-family: 'Quicksand';
 }
 
-body {
-	background-color: rgba(255, 204, 0, .1);	
-}
-
 .title a {
 	/*font-family: 'Baloo';*/
 	font-weight: 900;
@@ -409,17 +405,17 @@ button:hover{
 }
 
 .profilePage {
-    /*background-color: rgba(255, 204, 0, .1);*/
-    background-image: url(background1.png) no-repeat center center fixed;
+ /*   background-color: rgba(255, 204, 0, .1);*/
+    background-image: url(background1.png); opacity: .5; no-repeat center center fixed;
     background-size: cover;
     margin-top: -20px;
     padding-top: 150px;
     padding-bottom: 525px;
 }
 
-.overlay {
+/*.overlay {
 	background-color: rgba(271, 271, 271, .8);
-}
+}*/
 
 .signupPage {
 	background-color: rgba(255, 204, 0, .1);
