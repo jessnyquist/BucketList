@@ -61,5 +61,17 @@
 	</script>
 	<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
 	<script src="bucket.js"></script>
+    <script>
+   // jQuery for page scrolling feature - requires jQuery Easing plugin
+   $(function() {
+       $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+       $('html, body').stop().animate({
+           scrollTop: $($anchor.attr('href')).offset().top
+           }, 1500, 'easeInOutExpo');
+       event.preventDefault();
+       });
+   });
+   </script>
 </body>
 </html>
