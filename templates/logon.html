@@ -1,12 +1,16 @@
 <div class="logonPage">
 
-<h1 class="accessTitle">Sign In</h1>
 
-<div ng-show="successLogin" class="alert alert-success fade in">
-	{{successLogin}}
-</div>
+<div class="logonForm">
 
-<form ng-submit="login()" class="accessForm">
+  <h1 class="accessTitle">Sign In</h1>
+
+  <div ng-show="successLogin" class="alert alert-success fade in">s
+  {{successLogin}}
+  </div>
+
+
+  <form ng-submit="login()" class="accessForm">
   <div class="signin-bars">
     <div>
       <label>Email</label>
@@ -19,20 +23,22 @@
     </div>
   </div>
 
-  <button type="submit">Sign In</button>
-</form>
+  <div class="logonButton"><button type="submit" class="logonBtn">Sign In</button></div>
+  </form>
 
-<p class="loginOr">Or...</p>
+  <p class="loginOr">Or...</p>
 
-<div class="fb">
-<div class="btn fblogin" ng-click="loginWithFb()">
-	<h2>Sign In with Facebook</h2>
-</div>
-</div>
+  <div class="fb">
+  <div class="btn fblogin" ng-click="loginWithFb()">
+  <h2>Sign In with Facebook</h2>
+  </div>
+  </div>
 
-<div class="needAccount">
+  <div class="needAccount">
   <div><p class="needAccountBlurb">Don't have an existing Account?</p></div>
   <div><button class="newAccount"><a href="#/signup">New Account</a></button></div>
+  </div>
+
 </div>
 
 </div>

@@ -422,30 +422,78 @@ button:hover{
 }
 
 .signupFullPage {
-    background-color: rgba(255, 204, 0, .1);
+   /* background-color: rgba(255, 204, 0, .1);*/
     height: 1000px;
     padding-top: 200px;
+    position: relative;
+    z-index: 1;
+}
+
+.signupImg {
+ /*   position: absolute;
+    z-index: -1;*/
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("http://images.huffingtonpost.com/2012-07-15-COLORRUN4.jpg") center center;
+    opacity: .3;
+    width: 100%;
+    height: 100%;
 }
 
 .signupForm {
-    border: 2px solid green;
+    border-bottom: 2px solid rgba(72, 199, 167, 1);
+    border-top: 2px solid rgba(72, 199, 167, 1);
     width: 50%;
     margin: 0px auto;
     padding: 25px;
     padding-bottom: 10px;
 }
 
-.signupBtn {
-    font-size: 15px;
+.signupInput {
+    text-align: left;
 }
 
-.logonPage {
-    background-color: rgba(255, 204, 0, .1);
+.accessForm label {
+    text-align: left;
+}
+
+.signupBtn {
+    font-size: 15px;
+    border: 2px solid rgba(72, 199, 167, 1);
 }
 
 .signupButton {
     padding-top: 10px;
+    padding-bottom: 10px;
 }
+
+.logonPage {
+    background-color: rgba(255, 204, 0, .1);
+    height: 1000px;
+    padding-top: 200px;
+}
+
+.logonButton {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.logonBtn {
+    font-size: 15px;
+    border: 2px solid rgba(72, 199, 167, 1);
+}
+
+.logonForm {
+    border-bottom: 2px solid rgba(72, 199, 167, 1);
+    border-top: 2px solid rgba(72, 199, 167, 1);
+    width: 50%;
+    margin: 0px auto;
+    padding: 25px;
+    padding-bottom: 10px;
+}
+
 
 /*.checkBox {
     height: 10px;

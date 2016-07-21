@@ -1,55 +1,29 @@
-<<<<<<< HEAD
 <div class="signupFullPage">
+  <div class = "signupImg"></div>
 
+    <div class="signupForm">
+    <h1 class="accessTitle">Create New Account</h1>
 
-<div class="signupForm">
-<h1 class="accessTitle">Create New Account</h1>
+    <form class="accessForm" ng-submit="signUpWithEmail()">
+      <div>
+        <label>Name</label>
+        <input class="signupInput" ng-model="name">
+      </div>
+      
+      <div>
+        <label>Email</label>
+        <input class="signupInput" ng-model="email">
+      </div>
+      
+      <div>
+        <label>Password</label>
+        <input class="signupInput" type="password" ng-model="password">
+      </div>
+      
+      <div class="signupButton"><button type="submit" class="signupBtn">Sign up</button></div>
+      
+    </form>
 
-<form class="accessForm" ng-submit="signUpWithEmail()">
-  <div>
-    <label>Name</label>
-    <input ng-model="name">
-  </div>
-  
-  <div>
-    <label>Email</label>
-    <input ng-model="email">
-  </div>
-  
-  <div>
-    <label>Password</label>
-    <input type="password" ng-model="password">
-  </div>
-  
-  <div class="signupButton"><button type="submit" class="signupBtn">Sign up</button></div>
-  
-</form>
+    </div>
 
 </div>
-
-</div>
-=======
-
-  <h1 class="accessTitle">Create New Account</h1>
-
-  <form class="accessForm" ng-submit="signUpWithEmail()">
-    <div>
-      <label>Name</label>
-      <input ng-model="name">
-    </div>
-    
-    <div>
-      <label>Email</label>
-      <input ng-model="email">
-    </div>
-    
-    <div>
-      <label>Password</label>
-      <input type="password" ng-model="password">
-    </div>
-    
-    <button type="submit">Sign up</button>
-    
-  </form>
-
->>>>>>> ee70cd5594a1f51975a91205451ff721fdf3ee5c
