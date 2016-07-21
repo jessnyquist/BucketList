@@ -318,9 +318,14 @@ button:hover{
     color: #1DB5F6;
     margin: 0px auto;
     width: 40%;
-    text-align: center;
     
 }
+
+.centerAccount {
+	margin: 0px auto;
+	width: 100%;
+}
+
 .needAccountBlurb {
     font-size: 22px;
     color: rgba(72, 199, 167, 1);
@@ -348,7 +353,7 @@ button:hover{
     border: 1px solid black;
     width: 35%;
     margin: 0px auto;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 30px;
     
 }
@@ -516,8 +521,8 @@ button:hover{
 
 .logonPage {
     background-color: rgba(255, 204, 0, .1);
-    height: 1000px;
-    padding-top: 200px;
+    height: 670px;
+    padding-top: 150px;
 }
 
 .logonButton {
