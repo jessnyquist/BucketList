@@ -17,8 +17,13 @@ button:hover{
 .nav {
 	display: inline-block;
 	width: 100%;
-	/*border-bottom: 1px solid grey;*/
 	margin-top: 0px;
+	background: url(cityline.jpg);
+	background-position: left top;
+	background-size: cover;
+}
+
+.nav-cover {
 	background-color: rgba(271, 271, 271, .05);
 }
 
