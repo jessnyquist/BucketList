@@ -1,45 +1,45 @@
 <div class="logonPage">
+  <div class = "logonImg"></div>
+
+    <div class="logonForm">
+
+      <h1 class="accessTitle">Sign In</h1>
+
+      <div ng-show="successLogin" class="alert alert-success fade in">s
+      {{successLogin}}
+      </div>
 
 
-<div class="logonForm">
+      <form ng-submit="login()" class="accessForm">
+      <div class="signin-bars">
+        <div>
+          <label>Email</label>
+          <input ng-model="email">
+        </div>
+        
+        <div>
+          <label>Password</label>
+          <input type="password" ng-model="password">
+        </div>
+      </div>
 
-  <h1 class="accessTitle">Sign In</h1>
+      <div class="logonButton"><button type="submit" class="logonBtn">Sign In</button></div>
+      </form>
 
-  <div ng-show="successLogin" class="alert alert-success fade in">s
-  {{successLogin}}
-  </div>
+    <!--   <p class="loginOr">Or...</p> -->
 
-
-  <form ng-submit="login()" class="accessForm">
-  <div class="signin-bars">
-    <div>
-      <label>Email</label>
-      <input ng-model="email">
+      <div class="fb">
+      <div class="btn fblogin" ng-click="loginWithFb()">
+      <h5>Sign In with Facebook</h5>
+      </div>
+      </div>
     </div>
-    
-    <div>
-      <label>Password</label>
-      <input type="password" ng-model="password">
-    </div>
+
+      <div class="needAccount">
+        <div><p class="needAccountBlurb">Don't have an existing Account?</p></div>
+        <div><button class="newAccount"><a href="#/signup">New Account</a></button></div>
+      </div>
   </div>
-
-  <div class="logonButton"><button type="submit" class="logonBtn">Sign In</button></div>
-  </form>
-
-<!--   <p class="loginOr">Or...</p> -->
-
-  <div class="fb">
-  <div class="btn fblogin" ng-click="loginWithFb()">
-  <h5>Sign In with Facebook</h5>
-  </div>
-  </div>
-</div>
-
-  <div class="needAccount">
-    <div><p class="needAccountBlurb">Don't have an existing Account?</p></div>
-    <div><button class="newAccount"><a href="#/signup">New Account</a></button></div>
-  </div>
-
 
 
 </div>

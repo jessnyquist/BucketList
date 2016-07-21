@@ -480,8 +480,8 @@ button:hover{
     bottom: 0;
     left: 0;
     right: 0;
-   /* background: url("http://images.huffingtonpost.com/2012-07-15-COLORRUN4.jpg") center center;*/
-    background: url("https://s-media-cache-ak0.pinimg.com/736x/f4/bf/53/f4bf53f81baadda89a6b02ecb6544e45.jpg") center center;
+    background: url("https://s-media-cache-ak0.pinimg.com/736x/f4/bf/53/f4bf53f81baadda89a6b02ecb6544e45.jpg") no-repeat center center;
+    background-size: cover;
     opacity: .3;
     width: 100%;
     height: 100%;
@@ -515,9 +515,22 @@ button:hover{
 }
 
 .logonPage {
-    background-color: rgba(255, 204, 0, .1);
     height: 1000px;
     padding-top: 200px;
+}
+
+.logonImg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("http://images.huffingtonpost.com/2012-07-15-COLORRUN4.jpg") center center;
+    background-size: cover;
+    opacity: .3;
+    width: 100%;
+    height: 900px;
 }
 
 .logonButton {
@@ -538,6 +551,9 @@ button:hover{
     padding: 25px;
     padding-bottom: 10px;
 }
+
+
+ background: url("http://images.huffingtonpost.com/2012-07-15-COLORRUN4.jpg") center center;
 
 
 /*.checkBox {
