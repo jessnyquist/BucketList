@@ -15,6 +15,10 @@ a:hover {
     text-decoration: none;
 }
 
+.opening-img {
+	background-size: cover;
+}
+
 video.fullscreen {
 	position: fixed;
 	top: 50%;
