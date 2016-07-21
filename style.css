@@ -299,7 +299,7 @@ button:hover{
 }
 .accessTitle {
     font-size: 40px;
-    color: rgba(72, 199, 167, 1);
+    color: #578599;
     text-align: center;
     margin: 0px;
     padding-bottom: 20px;
@@ -311,51 +311,59 @@ button:hover{
 }
 .signin-bars {
     margin: 0px auto;
-    width: 350px;
+    width: 100%;
 }
 .needAccount {
-    display: block;
-    padding-top: 80px;
-    height: 120px;
+	padding-top: 50px;
     color: #1DB5F6;
-    width: 45%;
     margin: 0px auto;
+    width: 40%;
+    text-align: center;
+    
 }
 .needAccountBlurb {
-    font-size: 25px;
-    color: #1DB5F6;
+    font-size: 22px;
+    color: rgba(72, 199, 167, 1);
     float: left;
     padding-right: 20px;
-    text-align: center;
+   /* margin: 0px auto;
+    width: 80%;*/
+
 }
 .feedBoxes:hover{
     background-color: rgba(0,0,0,.1);
 }
 .newAccount {
-    font-size: 20px;
+    font-size: 14px;
     text-decoration: none;
     float: left;
+    border: 2px solid #578599;
+
 }
-.newAccount a {
+.newAccount a:hover {
     text-decoration: none;
+    color: rgba(72, 199, 167, 1);
 }
 .fb {
     border: 1px solid black;
-    margin-top: 30px;
     width: 35%;
     margin: 0px auto;
-    padding-left: 50px;
-    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    
 }
+
 .fblogin {
-    height: 85px;
-    margin-top: 30px;
-    color: rgba(72, 199, 167, 1);
+    height: 40px;
+    color: #578599;
     font-size: 35px;
     margin: 0px auto;
     display: block;
-    width: 20%;
-    border: 2px solid black;
+    width: 100%;
+    padding-left: 25px;
+    margin-top: -5px;
+/*    margin-bottom: -15px;*/
+    /*border: 2px solid black;*/
 }
 .loginOr {
     text-align: center;
@@ -482,12 +490,12 @@ button:hover{
 
 .logonBtn {
     font-size: 15px;
-    border: 2px solid rgba(72, 199, 167, 1);
+    border: 2px solid #578599;
 }
 
 .logonForm {
-    border-bottom: 2px solid rgba(72, 199, 167, 1);
-    border-top: 2px solid rgba(72, 199, 167, 1);
+    border-bottom: 2px solid #578599;
+    border-top: 2px solid #578599;
     width: 50%;
     margin: 0px auto;
     padding: 25px;
