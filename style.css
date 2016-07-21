@@ -98,6 +98,7 @@ button:hover{
 	margin: 0px auto;
 	margin-bottom: 40px;
 	font-size: 28px;
+	color: #578599;
 }
 
 .search {
@@ -129,6 +130,11 @@ button:hover{
 
 .feedBoxesTitle {
 	font-size: 33px;
+	color: #1DB5F6;
+}
+
+.feedBoxesTitle a {
+	color: #1DB5F6;
 }
 
 .feedBoxesDes {
@@ -138,7 +144,7 @@ button:hover{
 
 .accessTitle {
 	font-size: 70px;
-	color: #FF7A6B;
+	color: rgba(72, 199, 167, 1);
 	margin-top: 50px;
 	text-align: center;
 }
@@ -150,8 +156,11 @@ button:hover{
 
 .needAccount {
 	display: block;
-	margin-top: 120px;
+	padding-top: 80px;
 	height: 120px;
+	color: #1DB5F6;
+	width: 45%;
+	margin: 0px auto;
 }
 
 .needAccountBlurb {
@@ -171,24 +180,35 @@ button:hover{
 	text-decoration: none;
 }
 
+.fb {
+	border: 1px solid black;
+	margin-top: 30px;
+	width: 35%;
+	margin: 0px auto;
+	padding-left: 50px;
+	font-size: 30px;
+}
+
 .fblogin {
 	height: 85px;
 	margin-top: 30px;
-	color: orange;
+	color: rgba(72, 199, 167, 1);
+	font-size: 35px;
 	margin: 0px auto;
 	display: block;
 	width: 20%;
+	border: 2px solid black;
 }
 
 .loginOr {
 	text-align: center;
 	font-size: 40px;
 	margin-top: 20px;
-	color: #FF7A6B;
+	color: rgba(72, 199, 167, 1);
 }
 
 .myListsTitle {
-	color: #FF7A6B;
+	color: rgba(72, 199, 167, 1);
 	font-size: 60px;
 }
 
@@ -200,6 +220,7 @@ button:hover{
 .myProfileLists {
 	font-size: 20px;
 	margin-top: 20px;
+	color: #578599;
 }
 
 .viewSuccess {
