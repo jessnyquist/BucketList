@@ -328,7 +328,21 @@ button:hover{
 
 }
 
+.backToProfile {
+	text-decoration: none;
+	margin-left: 30px;
+	padding-top: 200px;
+	color: #2CFFCB;
+	font-size: 15px;
+}
 
+.backToProfile:hover {
+	text-decoration: none;
+}
+
+.backToProfileBtn {
+	margin-left: 30px;
+}
 /*.checkBox {
 	height: 10px;
 	width: 10px;
