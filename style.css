@@ -43,7 +43,7 @@ video.fullscreen {
 .video-container video {
 	position: relative;
 	z-index: 0;
-	opacity: .9;
+	opacity: .9;s
 }
 
 .welcomeBlurb {
@@ -300,14 +300,15 @@ button:hover{
     margin-top: 150px;
 }
 .accessTitle {
-    font-size: 50px;
+    font-size: 40px;
     color: rgba(72, 199, 167, 1);
-    margin-top: 50px;
     text-align: center;
+    margin: 0px;
+    padding-bottom: 20px;
 }
 .accessForm {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
 }
 .signin-bars {
     margin: 0px auto;
@@ -411,6 +412,33 @@ button:hover{
     height: 1000px;
     padding-top: 20px;
 }
+
+.signupFullPage {
+    background-color: rgba(255, 204, 0, .1);
+    height: 1000px;
+    padding-top: 200px;
+}
+
+.signupForm {
+    border: 2px solid green;
+    width: 50%;
+    margin: 0px auto;
+    padding: 25px;
+    padding-bottom: 10px;
+}
+
+.signupBtn {
+    font-size: 15px;
+}
+
+.logonPage {
+    background-color: rgba(255, 204, 0, .1);
+}
+
+.signupButton {
+    padding-top: 10px;
+}
+
 /*.checkBox {
     height: 10px;
     width: 10px;
