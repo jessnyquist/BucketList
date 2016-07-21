@@ -169,6 +169,12 @@ button:hover{
     color: rgba(72, 199, 167, 1);
 }
 
+.nav h1 a:hover {
+    text-decoration: none;
+    color: rgba(0,0,0,.5);
+   /* color: rgba(72, 199, 167, 1);*/
+}
+
 .menu {
     float: right;
     font-size: 30px;
@@ -237,6 +243,7 @@ button:hover{
 .homeBottom {
     background-color: rgba(255, 204, 0, .1);
     margin-top: -30px;
+    padding-bottom: 100px;
 }
 
 #inspir {
@@ -278,6 +285,7 @@ button:hover{
     font-size: 20px;
     color: #578599;
 }
+
 .big-container {
     padding-left: 30px;
 }
@@ -380,6 +388,13 @@ button:hover{
 .subtitle{
     color: green;
     display: inline-block;
+}
+
+.profilePage {
+    background-color: rgba(255, 204, 0, .1);
+    margin-top: -20px;
+    height: 1000px;
+    padding-top: 20px;
 }
 /*.checkBox {
     height: 10px;
