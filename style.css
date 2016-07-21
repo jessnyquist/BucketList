@@ -147,8 +147,12 @@ button:hover{
 	color: #578599;
 }
 
+.big-container {
+	padding-left: 30px;
+}
+
 .accessTitle {
-	font-size: 70px;
+	font-size: 50px;
 	color: rgba(72, 199, 167, 1);
 	margin-top: 50px;
 	text-align: center;
@@ -156,7 +160,12 @@ button:hover{
 
 .accessForm {
 	text-align: center;
-	font-size: 25px;
+	font-size: 20px;
+}
+
+.signin-bars {
+	margin: 0px auto;
+	width: 350px;
 }
 
 .needAccount {
@@ -234,9 +243,12 @@ button:hover{
 }
 
 .listTitle {
-	color: #FF7A6B;
-	font-size: 60px;
-	margin-top:;
+	color: #48C7A7;
+	font-size: 40px;
+}
+
+.add {
+	padding-right: 10px;
 }
 
 .subtitle{
