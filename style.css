@@ -213,7 +213,7 @@ button:hover{
 	left: 0px;
 	right: 0px;
 	background-color: rgba(0,0,0,.7);
-	padding-top: 200px;
+	padding-top: 100px;
 	padding-bottom: 200px;
 }
 
@@ -299,7 +299,7 @@ button:hover{
 }
 .accessTitle {
     font-size: 40px;
-    color: rgba(72, 199, 167, 1);
+    color: #578599;
     text-align: center;
     margin: 0px;
     padding-bottom: 20px;
@@ -364,21 +364,44 @@ button:hover{
     color: rgba(72, 199, 167, 1);
 }
 .myListsTitle {
-    color: #578599;
+    color: #ffcc00;
     font-size: 42px;
+    font-weight: bold;
+    margin-top: 50px;
 }
 .makeNewList {
     font-size: 20px;
     margin-top: 30px;
 }
+
 .myProfileLists {
     font-size: 20px;
-    margin-top: 20px;
-    color: #578599;
+    margin-top: 30px;
+    /*color: #ffcc00;*/
+}
+
+.myProfileLists a {
+    font-weight: bold;
+    /*color: #ffcc00;*/
+    color: #005275;
 }
 
 .myProfileLists a:hover {
 	text-decoration: none;
+    color: rgba(0,0,0,.2);
+}
+
+.profileBtn {
+    border: 2px solid #ffcc00;
+    background-color: rgba(271,271,271,.5);
+  /*  color: #ffcc00; 
+    background-color: #578599;*/
+    color: #005275;
+}
+
+.profileBtn:hover {
+    text-decoration: none;
+    color: rgba(0,0,0,.2);
 }
 
 .viewSuccess {
@@ -406,12 +429,25 @@ button:hover{
 }
 
 .profilePage {
- /*   background-color: rgba(255, 204, 0, .1);*/
-    background-image: url(background1.png); opacity: .5; no-repeat center center fixed;
-    background-size: cover;
     margin-top: -20px;
     padding-top: 150px;
     padding-bottom: 525px;
+    z-index: 1;
+}
+
+.profileImg {
+ /*   background-color: rgba(255, 204, 0, .1);*/
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("background1.png") center center;
+    background-size: cover;
+    opacity: .4;
+    width: 100%;
+    height: 1050px;
 }
 
 /*.overlay {
@@ -436,15 +472,16 @@ button:hover{
     bottom: 0;
     left: 0;
     right: 0;
-    background: url("http://images.huffingtonpost.com/2012-07-15-COLORRUN4.jpg") center center;
+   /* background: url("http://images.huffingtonpost.com/2012-07-15-COLORRUN4.jpg") center center;*/
+    background: url("https://s-media-cache-ak0.pinimg.com/736x/f4/bf/53/f4bf53f81baadda89a6b02ecb6544e45.jpg") center center;
     opacity: .3;
     width: 100%;
     height: 100%;
 }
 
 .signupForm {
-    border-bottom: 3px solid rgba(72, 199, 167, 1);
-    border-top: 3px solid rgba(72, 199, 167, 1);
+    border-bottom: 3px solid #578599;
+    border-top: 3px solid #578599;
     width: 50%;
     margin: 0px auto;
     padding: 25px;
@@ -461,7 +498,7 @@ button:hover{
 
 .signupBtn {
     font-size: 15px;
-    border: 2px solid rgba(72, 199, 167, 1);
+    border: 2px solid #578599;;
 }
 
 .signupButton {
