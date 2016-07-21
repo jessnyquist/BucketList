@@ -2,6 +2,11 @@
 	box-sizing: border-box;
 	font-family: 'Kadwa';
 }
+
+a:hover {
+	text-decoration: none;
+}
+
 button{
 	text-transform: lowercase;
 	background-color: white;
@@ -14,6 +19,7 @@ button:hover{
 	background-color: black;
 	color: white;
 }
+
 .nav {
 	display: inline-block;
 	width: 100%;
@@ -182,6 +188,11 @@ button:hover{
 	color: #1DB5F6;
 	float: left;
 	padding-right: 20px;
+	text-align: center;
+}
+
+.feedBoxes:hover{
+	background-color: rgba(0,0,0,.2);
 }
 
 .newAccount {
