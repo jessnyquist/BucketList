@@ -133,15 +133,6 @@ button:hover{
     text-decoration: none;
     color: rgba(0,0,0,.5);
 }
-<<<<<<< HEAD
-.success{
-    position:fixed;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    background-color: rgba(0,0,0,.3);
-=======
 
 .successbox{
 	width:750px;
@@ -156,7 +147,6 @@ button:hover{
 	left: 0px;
 	right: 0px;
 	background-color: rgba(0,0,0,.7);
->>>>>>> a565a19ad8e4c6563f41408e3ca384f67c9a057a
 }
 .welcomeBlurb {
     text-align: center;
