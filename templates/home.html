@@ -1,14 +1,20 @@
 <div class="home-div">
 	<div class="background">
 
-	<video src="#defer-loading" autoplay/>
+		<div class="video-container">
+		
+			<video loop muted autoplay poster= "opening-img.png"> 
+				<source src="buckit.mp4" type= "video/mp4"/>
+			</video>
 
-		<div class="welcomeBlurb">
-			<h1 class="welcome">Kick your excuses to the curb, Just BuckIt</h1>
-			<h3 class="welcome">Need inspiration? Check out lists made by other users</h3>
+			<div class="welcomeBlurb">
+				<h1 class="welcome"> Kick your excuses to the curb, <br> Just BuckIt</h1>
+			</div>
 		</div>
+
 	</div>
 	<div>
+		<h3 class="welcome">Need inspiration? Check out lists made by other users</h3>
 		<div class="homeSearch">Search Bucket Lists: <input ng-model="searchText"></div>
 	
 		<div ng-repeat="item in lists | filter: searchText">
