@@ -136,7 +136,13 @@ app.controller('SignUpCtrl', function($scope, $firebaseAuth, $firebaseObject, $l
 			$scope.user.name = $scope.name;
 			$scope.user.email = $scope.email;
 			$scope.user.$save();
-			$scope.isSuccess= true;	
+			$scope.isSuccess= true;
+
+
+		 // var onSuccessCallback = function(data) {
+   //      	$rootScope.currentUserSignedIn = true;
+   // 			 };
+
 			// window.location.assign('#/list');
 			$location.path("/");   
 		}).catch(function(error) {
@@ -168,6 +174,12 @@ app.controller('LogInCtrl', function($scope, $firebaseAuth, $routeParams, $locat
 			user.email = result.user.email;	
 			user.$save();
 			});
+
+			// var onSuccessCallback = function(data) {
+   //      	$rootScope.currentUserSignedIn = true;
+   // 			 };
+
+
 		}).catch(function(error) {
 			console.error("Authentication failed:", error);
 		});
@@ -187,11 +199,19 @@ app.controller('LogInCtrl', function($scope, $firebaseAuth, $routeParams, $locat
 		.then(function(firebaseUser) {
 			console.log("Signed in as:", firebaseUser.uid);
 			$location.path("/");
+
+			// var onSuccessCallback = function(data) {
+   //      	$rootScope.currentUserSignedIn = true;
+   // 			 };
+
+
 		}).catch(function(error) {
 			console.error("Authentication failed:", error);
 			$scope.errorMessage= error.message;
 		});
 	}
+
+
 });
 
 
