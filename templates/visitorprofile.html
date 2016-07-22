@@ -1,7 +1,7 @@
 <div class="big-container profilePage">
 	<div class="profileImg"></div>
 
-	<p class="listTitle">{{ ownerName }}'s Profile</p>
+	<h1 class="listTitle">{{ ownerName }}'s Profile</h1>
 
 	<div class="myProfileLists" ng-repeat="item in lists">
 		<a href="#/list/{{item.$id}}" ng-show="item.user === profile_Id"> *{{item.title}}: {{item.description}} </a>

@@ -454,6 +454,7 @@ button:hover{
 	padding-top: 3px;
 	padding-bottom: 3px;
 	border: none;
+	background-color: transparent;
 }
 
 .subtitle{
