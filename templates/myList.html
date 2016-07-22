@@ -1,56 +1,56 @@
-<div class="big-container">
-	<a href="#/myProfile/" class="backToProfile"> < Back to My Profile</a>
-	<div ng-hide="title.isEditing">
-		<span ng-dblclick= "title.isEditing = true">
-			<h1 class="listTitle">{{list.title}}</h1>
-			<h3> {{list.description}}</h3>
-		</span>
-	</div>
-
-	<div ng-show = "title.isEditing">
-		<input ng-model = "list.title">	
-			<button ng-click="title.isEditing = false">
-				<div ng-click="edit()">
-					Done
-				</div>
-			</button>	
-	</div>
-
-	<div ng-repeat="(id, event) in list.events">
-
-	<div>
-
-		<div ng-hide="event.isEditing">
-			<span ng-dblclick= "event.isEditing = true">
-				<input type="checkbox" ng-click="completed(id); complete = true" ng-checked="event.isCompleted"> {{event.title}}
+<div class="big-container listPage">
+	<div class="listImg"></div>
+		<a href="#/myProfile/" class="backToProfile"><strong> < Back to My Profile</strong></a>
+		<div ng-hide="title.isEditing">
+			<span ng-dblclick= "title.isEditing = true" class="workplz">
+				<h1 class="listTitle">{{list.title}}</h1>
+				<h3 class="listdesc"> {{list.description}}</h3>
 			</span>
+		</div>
 
-			<button ng-click= "event.isEditing = true">Edit</button>
+		<div ng-show = "title.isEditing">
+			<input ng-model = "list.title">	
+				<button ng-click="title.isEditing = false" class="listBtn">
+					<div ng-click="edit()">
+						Done
+					</div>
+				</button>	
+		</div>
 
-			<button ng-click= "remove($index)"> Delete </button>
+		<div ng-repeat="(id, event) in list.events">
 
-			<div ng-show="complete">	
-				<form>
-					<input type="file" id= 'file' fileread="newMessage.image" ng-model="newMessage.image">
-					<button ng-click="uploadImage(id)"> Upload! </button>
-				</form>
+		<div>
+
+			<div ng-hide="event.isEditing">
+				<span ng-dblclick= "event.isEditing = true">
+					<input type="checkbox" ng-click="completed(id); complete = true" ng-checked="event.isCompleted" class="check"><div class="listEvent">{{event.title}}</div>
+				</span>
+
+				<button ng-click= "event.isEditing = true" class="listBtn">Edit</button>
+
+				<button ng-click= "remove($index)" class="listBtn"> Delete </button>
+
+				<div ng-show="complete">	
+					<form>
+						<input type="file" id= 'file' fileread="newMessage.image" ng-model="newMessage.image">
+						<button ng-click="uploadImage(id)" class="listBtn"> Upload! </button>
+					</form>
+				</div>
+			</div>
+
+			<div ng-show = "event.isEditing">
+				<input ng-model = "event.title">	
+					<button ng-click="event.isEditing = false" type="submit" class="listBtn">Done</button>	
 			</div>
 		</div>
 
-		<div ng-show = "event.isEditing">
-			<input ng-model = "event.title">	
-				<button ng-click="event.isEditing = false" type="submit">Done</button>	
+			
 		</div>
-	</div>
 
-		
-	</div>
+		<button ng-click="createNew = true" ng-hide="createNew" class="listBtn">New Goal</button>
+		<form ng-submit="createEvent()" ng-show="createNew">
+		To Do:<input ng-model="eventName">
 
-	<button ng-click="createNew = true" ng-hide="createNew">New Goal</button>
-	<form ng-submit="createEvent()" ng-show="createNew">
-	To Do:<input ng-model="eventName">
-
-	<button type="submit" ng-click>Add to List!</button>
-	</form>
-
+		<button type="submit" ng-click class="listBtn">Add to List!</button>
+		</form>
 </div>

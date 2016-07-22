@@ -382,6 +382,23 @@ button:hover{
     font-weight: bold;
     margin-top: 50px;
 }
+
+.listTitle {
+    color: #578599;
+    font-size: 42px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+.listdesc {
+    color: #578599;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+
 .makeNewList {
     font-size: 20px;
     margin-top: 30px;
@@ -390,6 +407,7 @@ button:hover{
 .myProfileLists {
     font-size: 20px;
     margin-top: 30px;
+    margin-left: 20px;
     /*color: #ffcc00;*/
 }
 
@@ -397,6 +415,7 @@ button:hover{
     font-weight: bold;
     /*color: #ffcc00;*/
     color: #005275;
+    margin-left: 20px;
 }
 
 .myProfileLists a:hover {
@@ -422,8 +441,9 @@ button:hover{
     margin-top: 30px;
 }
 .listTitle {
-    color: #48C7A7;
-    font-size: 40px;
+    color: #ffcc00;
+    font-weight: bold;
+    font-size: 50px;
 }
 .add {
     padding-right: 10px;
@@ -557,16 +577,74 @@ button:hover{
     padding-bottom: 10px;
 }
 
+.listPage {
+    padding-top: 20px;
+}
 
- background: url("http://images.huffingtonpost.com/2012-07-15-COLORRUN4.jpg") center center;
+.listImg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("http://i.imgur.com/z5n2C1B.jpg") center center;
+    margin-top: -400px;
+    background-size: cover;
+    opacity: .3;
+    width: 100%;
+    height: 1050px;
+}
 
+.listBtn {
+   border: 2px solid #578599;
+    background-color: rgba(271,271,271,.5);
+    color: #578599;
+    padding-left: 20px;
+    margin-left: 20px;
+}
 
-/*.checkBox {
-    height: 10px;
+.listBtn:hover {
+    text-decoration: none;
+    color: rgba(0,0,0,.2);
+}
+
+.listEvent {
+    font-weight: bold;
+    /*color: #ffcc00;*/
+    color: #005275;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.myProfileLists:hover {
+    text-decoration: none;
+    color: rgba(0,0,0,.2);
+}
+
+.backToProfile {
+    font-weight: bold;
+    color: #005275;
+    font-size: 17px;
+    padding-left: 20px;
+ }
+
+.backToProfile:hover {
+    text-decoration: none;
+    color: rgba(0,0,0,.2);
+}
+
+.check {
+    width: 20px;
+}
+
+.workplz h1 {
+    color: #578599;
+}
+    /*height: 10px;
     width: 10px;
     border: solid black 1px;
     display: inline-block;
 }
 .isGreen {
     background-color: green;
-}*/
