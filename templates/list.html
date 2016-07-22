@@ -1,31 +1,33 @@
-<div class="big-container">
 
-
-<h1 class="listTitle">{{list.title}}</h1>
-
-
-
-<p> Created by: <a href="#/visitorProfile/{{list.user}}"> {{user_email}}</a></p>
-
-
-<div ng-repeat="(id, event) in list.events">
-
-
-
-<div class="add">
-{{event.title}}
-	<button class="add-btn" ng-click="isAdding = true" ng-show="firebaseUser">
-	+
-	</button>
-</div>
-
-	<div ng-show="isAdding">
-		<select ng-options="key as val.title for (key, val) in myListArray" ng-model="data.selectedList"></select>
+<div class="big-container listPage">
+	<div class="listImg"></div>
 	
-		<button ng-click="addTo(event.title); isAdding = false; isAdded = true">Add to List!</button>
+	<div class="workplz">
+	<h1 class="listTitle">{{list.title}}</h1>
+	<h3 class="listdesc"> {{list.description}}</h3>
+	<h3 class="listdesc createdBy"> Created by: <a href="#/visitorProfile/{{list.user}}"> {{user_email}}</a></h3>
+	</div>
 
-	</div>		<div ng-show="isAdded">Added to List!</div>
-</div>
+	<div class="eventss">
+		<div ng-repeat="(id, event) in list.events">
+
+
+
+		<div class="add listEvents">
+		*{{event.title}}
+			<button class="add-btn listBtn" ng-click="isAdding = true" ng-show="firebaseUser">
+			+
+			</button>
+		</div>
+
+			<div ng-show="isAdding">
+				<select ng-options="key as val.title for (key, val) in myListArray" ng-model="data.selectedList"></select>
+			
+				<button ng-click="addTo(event.title); isAdding = false; isAdded = true" class="listBtn">Add to List!</button>
+
+			</div>		<div ng-show="isAdded">Added to List!</div>
+		</div>
+	</div>
 
 
 </div>
