@@ -617,6 +617,15 @@ button:hover{
     font-size: 20px;
 }
 
+.listEvents {
+    font-weight: bold;
+    /*color: #ffcc00;*/
+    color: #005275;
+    margin-left: 20px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
 .myProfileLists:hover {
     text-decoration: none;
     color: rgba(0,0,0,.2);
@@ -640,6 +649,21 @@ button:hover{
 
 .workplz h1 {
     color: #578599;
+}
+
+/*.workplz {
+    float: left;
+    display: block;
+}
+
+.eventss {
+    float: right;
+    display: block;
+    border: 2px solid yellow;
+}*/
+
+.createdBy {
+    padding-bottom: 30px;
 }
     /*height: 10px;
     width: 10px;
